@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="group_date">
+        <item>@string/daily</item>
+        <item>@string/monthly</item>
+        <item>@string/yearly</item>
+    </string-array>
+    <string-array name="group_currency">
+        <item>lei</item>
+        <item>€</item>
+        <item>$</item>
+        <item>£</item>
+    </string-array>
+    <string-array name="group_category_type">
+        <item>@string/income_category</item>
+        <item>@string/expense_category</item>
+    </string-array>
+    <string-array name="group_category">
+        <item>@string/income</item>
+        <item>@string/expenses</item>
+    </string-array>
+    <string-array name="group_account">
+        <item>@string/wallet_type_bank</item>
+        <item>@string/wallet_type_overdrafts</item>
+        <item>@string/wallet_type_card</item>
+        <item>@string/wallet_type_cash</item>
+        <item>@string/wallet_type_debit_card</item>
+        <item>@string/wallet_type_insurance</item>
+        <item>@string/wallet_type_investments</item>
+        <item>@string/wallet_type_loan</item>
+        <item>@string/wallet_type_prepaid</item>
+        <item>@string/wallet_type_savings</item>
+        <item>@string/wallet_type_others</item>
+    </string-array>
+</resources>

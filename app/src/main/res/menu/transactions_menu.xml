@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/date_group"
+        android:title="@string/display_type"
+        android:icon="@drawable/ic_baseline_calendar_today_24px"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/generate_pdf"
+        android:title="@string/generate_pdf"
+        android:icon="@drawable/ic_baseline_picture_as_pdf_24px"
+        app:showAsAction="ifRoom" />
+
+</menu>

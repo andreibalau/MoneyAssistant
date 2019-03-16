@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:focusableInTouchMode="true"
+    android:background="@color/colorWhite"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/icon"
+            android:contentDescription="@string/category"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:src="@drawable/icons8_chichen_itza_24"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+        <EditText
+            android:background="@color/colorWhite"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:layout_weight="1"
+            android:textSize="14sp"
+            android:gravity="center_vertical"
+            android:drawableEnd="@drawable/ic_baseline_edit_24px"
+            android:drawablePadding="10dp"
+            android:drawableTint="@color/colorGray"
+            android:id="@+id/details"
+            android:inputType="text"
+            android:hint="@string/details_label"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:importantForAutofill="no" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:background="@color/colorGray"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_weight="1"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:drawablePadding="10dp"
+            android:gravity="center_vertical"
+            android:drawableTint="@color/colorGray"
+            android:foreground="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:drawableEnd="@drawable/ic_baseline_calendar_today_24px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:background="@color/colorGray"
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent" />
+
+        <Spinner
+            android:id="@+id/account"
+            android:layout_weight="1"
+            android:background="@color/colorWhite"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:background="@color/colorGray"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp" />
+
+    <EditText
+        android:background="@color/colorWhite"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:textSize="14sp"
+        android:id="@+id/amount"
+        android:gravity="center_vertical"
+        android:inputType="numberDecimal"
+        android:layout_width="match_parent"
+        android:hint="@string/zero"
+        android:drawableTint="@color/colorGray"
+        android:drawablePadding="10dp"
+        android:drawableEnd="@drawable/ic_baseline_attach_money_24px"
+        android:layout_height="wrap_content"
+        android:importantForAutofill="no" />
+
+    <View
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:background="@color/colorGray"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp" />
+
+    <Button
+        android:id="@+id/save"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/save" />
+
+</LinearLayout>
