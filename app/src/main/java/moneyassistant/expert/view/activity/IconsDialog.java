@@ -30,7 +30,6 @@ public class IconsDialog extends AppCompatActivity implements OnItemClickListene
         recyclerView.setAdapter(iconAdapter);
         recyclerView.setLayoutManager(new GridLayoutManager(getApplicationContext(), 3));
         recyclerView.setHasFixedSize(true);
-        recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
         List<String> icons = new ArrayList<>(Arrays.asList(Constants.CATEGORY_ICONS));
         iconAdapter.submitList(icons);
     }

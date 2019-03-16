@@ -120,7 +120,7 @@ public class AddTransactionActivity extends AppCompatActivity
         Transaction transaction = new Transaction();
         transaction.setCategoryId(category.getId());
         Calendar calendar = Calendar.getInstance();
-        String date = Util.dateToString(calendar.getTime(), Constants.DATE_FORMAT_1);
+        String date = Util.dateToString(calendar.getTime(), Constants.DATE_FORMAT_4);
         transaction.setDate(date);
         transaction.setType(type);
         transactionWithCA.setTransaction(transaction);

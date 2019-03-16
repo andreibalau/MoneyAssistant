@@ -4,7 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/colorSmokeWhite"
     tools:context=".view.activity.MainActivity">
 
     <FrameLayout
@@ -17,6 +16,8 @@
         android:id="@+id/bottom_nagivation"
         android:layout_alignParentBottom="true"
         app:menu="@menu/bottom_menu"
+        app:itemIconTint="@color/bottom_nav_color_selector"
+        app:itemTextColor="@color/bottom_nav_color_selector"
         android:background="@color/colorWhite"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

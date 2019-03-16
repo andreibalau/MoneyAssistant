@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.room.util.StringUtil;
 import moneyassistant.expert.R;
 import moneyassistant.expert.model.entity.Account;
 import moneyassistant.expert.model.entity.Category;
@@ -71,7 +72,9 @@ public class TransactionActivity extends AppCompatActivity implements FragmentEv
                         Drawable drawable = getDrawable(resId);
                         categoryIcon.setImageDrawable(drawable);
                         categoryName.setText(category.getName());
-                        categoryType.setText(transaction.getType());
+                        String txt = transaction.getType().substring(0,1).toUpperCase() +
+                                transaction.getType().substring(1).toLowerCase();
+                        categoryType.setText(txt);
                         account.setText(a.getName());
                         amount.setText(String.format(Locale.getDefault(),
                                 "%.2f %s", transaction.getAmount(), currency));

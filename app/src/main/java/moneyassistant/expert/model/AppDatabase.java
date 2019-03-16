@@ -52,91 +52,91 @@ public abstract class AppDatabase extends RoomDatabase {
             ContentValues categoryValues = new ContentValues();
             categoryValues.put("category_name", "Salary");
             categoryValues.put("category_type", Category.CategoryTypes.Income);
-            categoryValues.put("category_icon", "icons8_refund_24");
+            categoryValues.put("category_icon", "icons8_refund");
             db.insert("category", OnConflictStrategy.IGNORE, categoryValues);
 
             categoryValues = new ContentValues();
             categoryValues.put("category_name", "Fuel");
             categoryValues.put("category_type", Category.CategoryTypes.Expense);
-            categoryValues.put("category_icon", "icons8_gas_station_24");
+            categoryValues.put("category_icon", "icons8_gas_station");
             db.insert("category", OnConflictStrategy.IGNORE, categoryValues);
 
             categoryValues = new ContentValues();
             categoryValues.put("category_name", "Clothes");
             categoryValues.put("category_type", Category.CategoryTypes.Expense);
-            categoryValues.put("category_icon", "icons8_jacket_24");
+            categoryValues.put("category_icon", "icons8_jacket");
             db.insert("category", OnConflictStrategy.IGNORE, categoryValues);
 
             categoryValues = new ContentValues();
             categoryValues.put("category_name", "Restaurant");
             categoryValues.put("category_type", Category.CategoryTypes.Expense);
-            categoryValues.put("category_icon", "icons8_dining_room_24");
+            categoryValues.put("category_icon", "icons8_dining_room");
             db.insert("category", OnConflictStrategy.IGNORE, categoryValues);
 
             categoryValues = new ContentValues();
             categoryValues.put("category_name", "Entertainment");
             categoryValues.put("category_type", Category.CategoryTypes.Expense);
-            categoryValues.put("category_icon", "icons8_3d_glasses_24");
+            categoryValues.put("category_icon", "icons8_3d_glasses");
             db.insert("category", OnConflictStrategy.IGNORE, categoryValues);
 
             categoryValues = new ContentValues();
             categoryValues.put("category_name", "Gifts");
             categoryValues.put("category_type", Category.CategoryTypes.Expense);
-            categoryValues.put("category_icon", "icons8_wedding_gift_24");
+            categoryValues.put("category_icon", "icons8_wedding_gift");
             db.insert("category", OnConflictStrategy.IGNORE, categoryValues);
 
             categoryValues = new ContentValues();
             categoryValues.put("category_name", "Holidays");
             categoryValues.put("category_type", Category.CategoryTypes.Expense);
-            categoryValues.put("category_icon", "icons8_christmas_tree_24");
+            categoryValues.put("category_icon", "icons8_christmas_tree");
             db.insert("category", OnConflictStrategy.IGNORE, categoryValues);
 
             categoryValues = new ContentValues();
             categoryValues.put("category_name", "Travel");
             categoryValues.put("category_type", Category.CategoryTypes.Expense);
-            categoryValues.put("category_icon", "icons8_night_landscape_24");
+            categoryValues.put("category_icon", "icons8_night_landscape");
             db.insert("category", OnConflictStrategy.IGNORE, categoryValues);
 
             categoryValues = new ContentValues();
             categoryValues.put("category_name", "Shopping");
             categoryValues.put("category_type", Category.CategoryTypes.Expense);
-            categoryValues.put("category_icon", "icons8_shopping_cart_24");
+            categoryValues.put("category_icon", "icons8_shopping_cart");
             db.insert("category", OnConflictStrategy.IGNORE, categoryValues);
 
             categoryValues = new ContentValues();
             categoryValues.put("category_name", "Sports");
             categoryValues.put("category_type", Category.CategoryTypes.Expense);
-            categoryValues.put("category_icon", "icons8_running_24");
+            categoryValues.put("category_icon", "icons8_running");
             db.insert("category", OnConflictStrategy.IGNORE, categoryValues);
 
             categoryValues = new ContentValues();
             categoryValues.put("category_name", "Health");
             categoryValues.put("category_type", Category.CategoryTypes.Expense);
-            categoryValues.put("category_icon", "icons8_hospital_3_24");
+            categoryValues.put("category_icon", "icons8_hospital");
             db.insert("category", OnConflictStrategy.IGNORE, categoryValues);
 
             categoryValues = new ContentValues();
             categoryValues.put("category_name", "Transportation");
             categoryValues.put("category_type", Category.CategoryTypes.Expense);
-            categoryValues.put("category_icon", "icons8_public_transportation_24");
+            categoryValues.put("category_icon", "icons8_public_transportation");
             db.insert("category", OnConflictStrategy.IGNORE, categoryValues);
 
             categoryValues = new ContentValues();
             categoryValues.put("category_name", "Education");
             categoryValues.put("category_type", Category.CategoryTypes.Expense);
-            categoryValues.put("category_icon", "icons8_scholarship_24");
+            categoryValues.put("category_icon", "icons8_school");
             db.insert("category", OnConflictStrategy.IGNORE, categoryValues);
 
             categoryValues = new ContentValues();
             categoryValues.put("category_name", "Self Development");
             categoryValues.put("category_type", Category.CategoryTypes.Expense);
-            categoryValues.put("category_icon", "icons8_development_skill_24");
+            categoryValues.put("category_icon", "icons8_development_skill");
             db.insert("category", OnConflictStrategy.IGNORE, categoryValues);
 
             categoryValues = new ContentValues();
             categoryValues.put("category_name", "General");
             categoryValues.put("category_type", Category.CategoryTypes.Expense);
-            categoryValues.put("category_icon", "icons8_price_tag_24");
+            categoryValues.put("category_icon", "icons8_price_tag");
             db.insert("category", OnConflictStrategy.IGNORE, categoryValues);
         }
 

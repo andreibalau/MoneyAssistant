@@ -130,7 +130,7 @@ public class BottomTransaction extends BottomSheetDialogFragment {
         t.setDate(time);
         Calendar calendar = Calendar.getInstance();
         try {
-            Date date = Util.stringToDate(time, Constants.DATE_FORMAT_1);
+            Date date = Util.stringToDate(time, Constants.DATE_FORMAT_4);
             calendar.setTime(date);
         } catch (ParseException e) {
             e.printStackTrace();
@@ -157,7 +157,7 @@ public class BottomTransaction extends BottomSheetDialogFragment {
     private void changeDate() {
         Calendar mcurrentTime = Calendar.getInstance();
         try {
-            mcurrentTime.setTime(Util.stringToDate(date.getText().toString(), Constants.DATE_FORMAT_1));
+            mcurrentTime.setTime(Util.stringToDate(date.getText().toString(), Constants.DATE_FORMAT_4));
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -169,7 +169,7 @@ public class BottomTransaction extends BottomSheetDialogFragment {
                 (view1, year1, month1, dayOfMonth) -> {
                     Calendar c = Calendar.getInstance();
                     c.set(year1, month1, dayOfMonth);
-                    time = Util.dateToString(c.getTime(), Constants.DATE_FORMAT_1);
+                    time = Util.dateToString(c.getTime(), Constants.DATE_FORMAT_4);
                     date.setText(time);
                 }, year, month, day);
         datePickerDialog.setTitle("Select date");

@@ -5,7 +5,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorSmokeWhite"
     android:orientation="vertical"
     android:focusableInTouchMode="true"
     tools:context=".view.activity.CategoryActivity">
@@ -48,7 +47,7 @@
                     android:layout_weight="3"
                     android:drawablePadding="4dp"
                     android:text="@string/type"
-                    android:drawableStart="@drawable/icons8_price_tag_24"
+                    android:drawableStart="@drawable/ic_baseline_payment_24px"
                     android:drawableTint="@color/colorPrimary"
                     android:gravity="center"
                     android:layout_width="match_parent"
@@ -115,7 +114,7 @@
                     android:layout_weight="3"
                     android:drawablePadding="4dp"
                     android:text="@string/icon"
-                    android:drawableStart="@drawable/icons8_bad_idea_24"
+                    android:drawableStart="@drawable/ic_baseline_edit_24px"
                     android:drawableTint="@color/colorPrimary"
                     android:gravity="center"
                     android:layout_width="match_parent"
@@ -135,7 +134,7 @@
                     android:textColor="@color/colorDefault"
                     android:background="@drawable/rounded_shape"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="40dp" />
 
             </LinearLayout>
 

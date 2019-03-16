@@ -48,7 +48,7 @@
                     android:drawablePadding="4dp"
                     android:text="@string/type"
                     android:layout_gravity="center_vertical"
-                    android:drawableStart="@drawable/icons8_bank_cards_24"
+                    android:drawableStart="@drawable/ic_baseline_payment_24px"
                     android:drawableTint="@color/colorPrimary"
                     android:gravity="center"
                     android:layout_width="match_parent"

@@ -16,11 +16,8 @@
         <ImageView
             android:id="@+id/icon"
             android:contentDescription="@string/category"
-            android:paddingStart="8dp"
-            android:paddingEnd="8dp"
-            android:src="@drawable/icons8_chichen_itza_24"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent" />
+            android:layout_width="40dp"
+            android:layout_height="40dp" />
 
         <EditText
             android:background="@color/colorWhite"

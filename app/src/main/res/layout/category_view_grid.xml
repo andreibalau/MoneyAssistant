@@ -3,9 +3,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:padding="10dp"
     android:layout_margin="10dp"
     android:id="@+id/item"
+    android:background="?attr/selectableItemBackgroundBorderless"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:ignore="UseCompoundDrawables">
@@ -14,8 +14,8 @@
         android:id="@+id/icon"
         android:layout_gravity="center_horizontal"
         android:contentDescription="@string/category"
-        android:layout_width="30dp"
-        android:layout_height="30dp" />
+        android:layout_width="40dp"
+        android:layout_height="40dp" />
 
     <TextView
         android:id="@+id/name"

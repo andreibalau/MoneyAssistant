@@ -57,16 +57,16 @@
                         android:transitionName="transaction"
                         android:contentDescription="@string/category"
                         android:id="@+id/category_icon"
-                        android:layout_marginStart="16dp"
-                        android:layout_marginEnd="16dp"
                         android:layout_gravity="center_vertical"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp" />
+                        android:layout_width="60dp"
+                        android:layout_height="60dp" />
 
                     <TextView
                         android:layout_gravity="center_vertical"
                         android:id="@+id/category_name"
-                        android:textSize="16sp"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginStart="16dp"
                         android:layout_marginEnd="16dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
@@ -74,7 +74,7 @@
                 </LinearLayout>
 
                 <View
-                    android:background="@color/colorGray"
+                    android:background="@color/colorPrimary"
                     android:layout_width="match_parent"
                     android:layout_height="0.5dp" />
 
@@ -87,8 +87,6 @@
 
                     <TextView
                         android:layout_weight="1"
-                        android:paddingStart="16dp"
-                        android:paddingEnd="16dp"
                         android:textColor="@color/colorGray"
                         android:textSize="14sp"
                         android:text="@string/category"
@@ -97,8 +95,6 @@
 
                     <TextView
                         android:layout_weight="1"
-                        android:paddingStart="16dp"
-                        android:paddingEnd="16dp"
                         android:textSize="14sp"
                         android:id="@+id/category_type"
                         android:layout_width="match_parent"
@@ -115,8 +111,6 @@
 
                     <TextView
                         android:layout_weight="1"
-                        android:paddingStart="16dp"
-                        android:paddingEnd="16dp"
                         android:textColor="@color/colorGray"
                         android:textSize="14sp"
                         android:text="@string/account"
@@ -126,8 +120,6 @@
                     <TextView
                         android:id="@+id/account"
                         android:layout_weight="1"
-                        android:paddingStart="16dp"
-                        android:paddingEnd="16dp"
                         android:textSize="14sp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
@@ -143,8 +135,6 @@
 
                     <TextView
                         android:layout_weight="1"
-                        android:paddingStart="16dp"
-                        android:paddingEnd="16dp"
                         android:textColor="@color/colorGray"
                         android:textSize="14sp"
                         android:text="@string/Amount"
@@ -154,8 +144,6 @@
                     <TextView
                         android:id="@+id/money"
                         android:layout_weight="1"
-                        android:paddingStart="16dp"
-                        android:paddingEnd="16dp"
                         android:textSize="14sp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
@@ -171,8 +159,6 @@
 
                     <TextView
                         android:layout_weight="1"
-                        android:paddingStart="16dp"
-                        android:paddingEnd="16dp"
                         android:textColor="@color/colorGray"
                         android:textSize="14sp"
                         android:text="@string/date"
@@ -182,8 +168,6 @@
                     <TextView
                         android:id="@+id/date"
                         android:layout_weight="1"
-                        android:paddingStart="16dp"
-                        android:paddingEnd="16dp"
                         android:textSize="14sp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
@@ -199,8 +183,6 @@
 
                     <TextView
                         android:layout_weight="1"
-                        android:paddingStart="16dp"
-                        android:paddingEnd="16dp"
                         android:textColor="@color/colorGray"
                         android:textSize="14sp"
                         android:text="@string/details"
@@ -210,8 +192,6 @@
                     <TextView
                         android:id="@+id/details"
                         android:layout_weight="1"
-                        android:paddingStart="16dp"
-                        android:paddingEnd="16dp"
                         android:textSize="14sp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />

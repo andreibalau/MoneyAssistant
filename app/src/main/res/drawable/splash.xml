@@ -6,7 +6,7 @@
         android:width="90dp"
         android:height="90dp"
         android:gravity="center">
-        <bitmap android:src="@drawable/icons8_coins_96" />
+        <bitmap android:src="@drawable/icons8_wallet" />
     </item>
 
 </layer-list>

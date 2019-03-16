@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,9 +49,6 @@ public class IconAdapter extends RecyclerView.Adapter<IconAdapter.IconViewHolder
         int id = context.getResources().getIdentifier(icon, "drawable",
                 context.getPackageName());
         Drawable drawable = context.getDrawable(id);
-        if (drawable != null) {
-            drawable.setTint(context.getResources().getColor(R.color.colorPrimary));
-        }
         holder.icon.setImageDrawable(drawable);
     }
 
@@ -61,7 +59,7 @@ public class IconAdapter extends RecyclerView.Adapter<IconAdapter.IconViewHolder
 
     class IconViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        private ImageButton icon;
+        private ImageView icon;
 
         IconViewHolder(View itemView) {
             super(itemView);

@@ -189,10 +189,10 @@ public class Transactions extends Fragment implements OnItemClickListener {
     }
 
     private void setDisplay(List<TransactionWithCA> transactions) {
-        String pattern = Constants.DATE_FORMAT_1;
+        String pattern = Constants.DATE_FORMAT_4;
         switch (position) {
             case 1:
-                pattern = Constants.DATE_FORMAT_2;
+                pattern = Constants.DATE_FORMAT_5;
                 break;
             case 2:
                 pattern = Constants.DATE_FORMAT_3;
