@@ -48,27 +48,6 @@ public class Constants {
             "others"
     };
 
-    public static final HashMap<Integer, Integer> I_CATEGORY_MAP = new HashMap<Integer, Integer>() {{
-        put(R.string.salary, R.drawable.icons8_refund_24);
-    }};
-
-    public static final HashMap<Integer, Integer> E_CATEGORY_MAP = new HashMap<Integer, Integer>() {{
-       put(R.string.fuel, R.drawable.icons8_gas_station_24);
-       put(R.string.clothes, R.drawable.icons8_jacket_24);
-       put(R.string.restaurant, R.drawable.icons8_dining_room_24);
-       put(R.string.entertainment, R.drawable.icons8_3d_glasses_24);
-       put(R.string.gifts, R.drawable.icons8_wedding_gift_24);
-       put(R.string.holidays, R.drawable.icons8_christmas_tree_24);
-       put(R.string.travel, R.drawable.icons8_night_landscape_24);
-       put(R.string.shopping, R.drawable.icons8_shopping_cart_24);
-       put(R.string.sports, R.drawable.icons8_running_24);
-       put(R.string.health, R.drawable.icons8_hospital_3_24);
-       put(R.string.transportation, R.drawable.icons8_public_transportation_24);
-       put(R.string.education, R.drawable.icons8_scholarship_24);
-       put(R.string.self_development, R.drawable.icons8_development_skill_24);
-       put(R.string.general, R.drawable.icons8_price_tag_24);
-    }};
-
     public static final String[] CATEGORY_ICONS = new String[] {
             "icons8_account_24",
             "icons8_bad_idea_24",

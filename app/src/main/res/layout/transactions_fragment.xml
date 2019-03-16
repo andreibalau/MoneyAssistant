@@ -180,7 +180,6 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:visibility="gone"
-            android:layout_marginTop="4dp"
             android:layout_below="@id/quick_stats"
             android:id="@+id/transactions_recycler"
             android:layout_width="match_parent"
