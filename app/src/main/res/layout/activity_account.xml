@@ -23,67 +23,34 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <ScrollView
+    <androidx.cardview.widget.CardView
         app:layout_constraintTop_toBottomOf="@id/appbarlayout"
-        app:layout_constraintBottom_toTopOf="@id/save"
+        android:id="@+id/container"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp"
+        android:layout_margin="16dp"
         android:layout_width="match_parent"
-        android:layout_height="0dp">
+        android:layout_height="wrap_content">
 
         <LinearLayout
+            android:padding="16dp"
+            android:background="@color/colorWhite"
             android:orientation="vertical"
-            android:layout_marginTop="10dp"
-            android:paddingBottom="10dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
             <LinearLayout
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
                 android:orientation="horizontal"
-                android:padding="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/wallet_type"
-                    android:layout_weight="3"
-                    android:drawablePadding="4dp"
-                    android:text="@string/type"
-                    android:layout_gravity="center_vertical"
-                    android:drawableStart="@drawable/ic_baseline_payment_24px"
-                    android:drawableTint="@color/colorPrimary"
-                    android:gravity="center"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
-
-                <Spinner
-                    android:clickable="true"
-                    android:layout_gravity="center"
-                    android:focusable="true"
                     android:layout_weight="1"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginEnd="4dp"
-                    android:background="@drawable/rounded_shape"
-                    android:foreground="?android:attr/selectableItemBackgroundBorderless"
-                    android:id="@+id/wallet_type_input"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:padding="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:id="@+id/wallet_name"
-                    android:layout_weight="3"
-                    android:drawablePadding="4dp"
+                    android:textColor="@color/colorGray"
+                    android:textSize="14sp"
                     android:text="@string/name"
-                    android:drawableStart="@drawable/ic_baseline_info_24px"
-                    android:drawableTint="@color/colorPrimary"
-                    android:gravity="center"
-                    android:layout_gravity="center_vertical"
                     android:labelFor="@id/wallet_name_input"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
@@ -91,14 +58,10 @@
                 <EditText
                     android:id="@+id/wallet_name_input"
                     android:inputType="text"
-                    android:layout_gravity="center"
-                    android:padding="10dp"
                     android:textSize="14sp"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginEnd="4dp"
                     android:layout_weight="1"
                     android:textColor="@color/colorDefault"
-                    android:background="@drawable/rounded_shape"
+                    android:background="@color/colorWhite"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     tools:ignore="Autofill" />
@@ -106,52 +69,70 @@
             </LinearLayout>
 
             <LinearLayout
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
                 android:orientation="horizontal"
-                android:padding="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/wallet_current_amount"
-                    android:layout_weight="3"
-                    android:drawablePadding="4dp"
+                    android:layout_weight="1"
+                    android:textColor="@color/colorGray"
+                    android:textSize="14sp"
+                    android:text="@string/type"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <Spinner
+                    android:layout_weight="1"
+                    android:layout_marginStart="-10dp"
+                    android:id="@+id/wallet_type_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_weight="1"
+                    android:textColor="@color/colorGray"
+                    android:textSize="14sp"
+                    android:labelFor="@id/wallet_current_amount_input"
                     android:text="@string/Amount"
-                    android:gravity="center"
-                    android:layout_gravity="center_vertical"
-                    android:drawableStart="@drawable/ic_baseline_attach_money_24px"
-                    android:drawableTint="@color/colorPrimary"
-                    android:labelFor="@id/wallet_name_input"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 
                 <EditText
                     android:id="@+id/wallet_current_amount_input"
                     android:inputType="numberDecimal"
-                    android:layout_gravity="center"
-                    android:padding="10dp"
                     android:textSize="14sp"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginEnd="4dp"
                     android:layout_weight="1"
                     android:textColor="@color/colorDefault"
-                    android:background="@drawable/rounded_shape"
+                    android:background="@color/colorWhite"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    tools:ignore="Autofill,LabelFor" />
+                    tools:ignore="Autofill" />
 
             </LinearLayout>
 
         </LinearLayout>
 
-    </ScrollView>
+    </androidx.cardview.widget.CardView>
 
     <Button
+        app:layout_constraintTop_toBottomOf="@id/container"
         android:id="@+id/save"
+        android:layout_margin="16dp"
         style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="save"
-        android:text="@string/save"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        android:text="@string/save" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

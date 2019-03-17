@@ -1,5 +1,6 @@
 package moneyassistant.expert.view.fragment;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -49,6 +50,13 @@ public class Accounts extends Fragment
     private AccountViewModel accountViewModel;
     private int deletedIndex;
     private Account deletedItem;
+    private AppCompatActivity appCompatActivity;
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        appCompatActivity = (AppCompatActivity) context;
+    }
 
     @Nullable
     @Override
@@ -63,7 +71,7 @@ public class Accounts extends Fragment
         Toolbar toolbar = view.findViewById(R.id.toolbar);
         RecyclerView recyclerView = view.findViewById(R.id.wallets_recycler);
         coordinatorLayout = view.findViewById(R.id.coordinator);
-        AppCompatActivity appCompatActivity = (AppCompatActivity) getActivity();
+        appCompatActivity = (AppCompatActivity) getActivity();
         toolbar.setTitle(R.string.accounts);
         accountAdapter = new AccountAdapter(this);
         recyclerView.setAdapter(accountAdapter);
@@ -74,11 +82,9 @@ public class Accounts extends Fragment
                 RecyclerItemTouchHelper(0, ItemTouchHelper.LEFT, this);
         itemTouchHelper.setAccountAdapter(accountAdapter);
         new ItemTouchHelper(itemTouchHelper).attachToRecyclerView(recyclerView);
-        if (appCompatActivity != null) {
-            recyclerView.addItemDecoration(new DividerItemDecoration(appCompatActivity,
-                    DividerItemDecoration.VERTICAL));
-            appCompatActivity.setSupportActionBar(toolbar);
-        }
+        recyclerView.addItemDecoration(new DividerItemDecoration(appCompatActivity,
+                DividerItemDecoration.VERTICAL));
+        appCompatActivity.setSupportActionBar(toolbar);
         accountViewModel.getAccounts().observe(this,
                 accounts -> accountAdapter.submitList(accounts));
         return view;
@@ -135,7 +141,7 @@ public class Accounts extends Fragment
                     .make(coordinatorLayout, deletedItem.getName() + " " +
                             getString(R.string.deleted), Snackbar.LENGTH_LONG);
             snackbar.setAction("UNDO", view -> accountViewModel.insert(deletedItem));
-            snackbar.setActionTextColor(Color.WHITE);
+            snackbar.setActionTextColor(appCompatActivity.getColor(R.color.colorAccent));
             snackbar.show();
         }
     }

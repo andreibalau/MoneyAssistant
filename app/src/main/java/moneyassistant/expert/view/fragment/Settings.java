@@ -35,8 +35,7 @@ public class Settings extends Fragment {
         if (appCompatActivity != null) {
             appCompatActivity.setSupportActionBar(toolbar);
         }
-        TextView income = view.findViewById(R.id.income_categories);
-        TextView expense = view.findViewById(R.id.expense_categories);
+        TextView categories = view.findViewById(R.id.categories);
         TextView fingerprint = view.findViewById(R.id.fingerprint);
         TextView passcode = view.findViewById(R.id.passcode);
         TextView currency = view.findViewById(R.id.currency);
@@ -44,15 +43,9 @@ public class Settings extends Fragment {
         TextView about = view.findViewById(R.id.about);
         TextView share = view.findViewById(R.id.share);
         TextView feedback = view.findViewById(R.id.feedback);
-        TextView rate = view.findViewById(R.id.rating);
-        income.setOnClickListener(view1 -> {
+        TextView rate = view.findViewById(R.id.rate);
+        categories.setOnClickListener(view1 -> {
             Intent intent = new Intent(getActivity(), CategoriesActivity.class);
-            intent.putExtra(Constants.CATEGORY, getString(R.string.income_category));
-            startActivity(intent);
-        });
-        expense.setOnClickListener(view12 -> {
-            Intent intent = new Intent(getActivity(), CategoriesActivity.class);
-            intent.putExtra(Constants.CATEGORY, getString(R.string.expense_category));
             startActivity(intent);
         });
         fingerprint.setOnClickListener(view13 -> {

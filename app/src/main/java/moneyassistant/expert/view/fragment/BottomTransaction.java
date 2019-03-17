@@ -149,9 +149,9 @@ public class BottomTransaction extends BottomSheetDialogFragment {
         } else {
             transactionViewModel.update(t);
         }
-        accountViewModel.update(a);
         fragmentEvent.onSave();
         dismiss();
+        accountViewModel.computeAccountValue(a);
     }
 
     private void changeDate() {

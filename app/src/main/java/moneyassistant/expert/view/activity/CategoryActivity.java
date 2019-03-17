@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,7 +29,7 @@ import moneyassistant.expert.viewmodel.CategoryViewModel;
 
 public class CategoryActivity extends AppCompatActivity implements OnCheckModelCount {
 
-    private TextView categoryIcon;
+    private ImageView categoryIcon;
     private EditText categoryName;
     private Spinner categoryType;
 
@@ -76,7 +77,7 @@ public class CategoryActivity extends AppCompatActivity implements OnCheckModelC
     private void changeIcon() {
         int id = getResources().getIdentifier(icon, "drawable", getPackageName());
         Drawable drawable = getDrawable(id);
-        categoryIcon.setCompoundDrawablesRelativeWithIntrinsicBounds(drawable, null, null, null);
+        categoryIcon.setImageDrawable(drawable);
     }
 
     public void selectIcon(View view) {

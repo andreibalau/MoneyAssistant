@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import moneyassistant.expert.model.entity.Account;
+import moneyassistant.expert.model.entity.Transaction;
 import moneyassistant.expert.model.repository.AccountRepository;
 import moneyassistant.expert.util.OnCheckModelCount;
 
@@ -46,6 +47,10 @@ public class AccountViewModel extends AndroidViewModel {
 
     public LiveData<Account> getAccountById(long id) {
         return accountRepository.getAccountById(id);
+    }
+
+    public void computeAccountValue(Account account) {
+        accountRepository.computeAccountValue(account);
     }
 
     public LiveData<List<Account>> getAccounts() {

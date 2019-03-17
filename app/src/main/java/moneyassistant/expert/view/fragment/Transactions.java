@@ -138,6 +138,7 @@ public class Transactions extends Fragment implements OnItemClickListener {
                     position = i;
                     changeDate(0);
                 }));
+        position = 1;
         changeDate(0);
         return view;
     }

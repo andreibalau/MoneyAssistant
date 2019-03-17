@@ -10,6 +10,7 @@ import androidx.lifecycle.LiveData;
 import moneyassistant.expert.model.AppDatabase;
 import moneyassistant.expert.model.dao.AccountDao;
 import moneyassistant.expert.model.entity.Account;
+import moneyassistant.expert.model.entity.Transaction;
 import moneyassistant.expert.util.OnCheckModelCount;
 
 public class AccountRepository {
@@ -46,6 +47,24 @@ public class AccountRepository {
         new Thread(() -> {
             int count = accountDao.checkTransactions(accountId);
             new Handler(Looper.getMainLooper()).post(() -> onCheckModelCount.onCheck(count));
+        }).start();
+    }
+
+    public void computeAccountValue(Account account) {
+        new Thread(() -> {
+            List<Transaction> transactions = accountDao.getTransactions(account.getId());
+            double starting = account.getStartingAmount();
+            double income = 0, expense = 0;
+            for (Transaction transaction : transactions) {
+                if (transaction.getType().equals(Transaction.TransactionTypes.Income)) {
+                    income += transaction.getAmount();
+                } else if (transaction.getType().equals(Transaction.TransactionTypes.Expense)) {
+                    expense += transaction.getAmount();
+                }
+            }
+            double result = starting + income - expense;
+            account.setCurrentAmount(result);
+            accountDao.update(account);
         }).start();
     }
 

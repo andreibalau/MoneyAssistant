@@ -9,6 +9,7 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 import moneyassistant.expert.model.entity.Account;
+import moneyassistant.expert.model.entity.Transaction;
 
 @Dao
 public interface AccountDao {
@@ -33,4 +34,7 @@ public interface AccountDao {
 
     @Query(value = "select count(*) from money_transaction where account_id_f = :accountId")
     int checkTransactions(long accountId);
+
+    @Query(value = "select * from money_transaction where account_id_f = :accountId")
+    List<Transaction> getTransactions(long accountId);
 }
