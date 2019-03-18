@@ -15,7 +15,6 @@ import java.util.Arrays;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import moneyassistant.expert.R;
 import moneyassistant.expert.model.entity.Account;
@@ -56,15 +55,12 @@ public class AccountActivity extends AppCompatActivity implements OnCheckModelCo
             setTitle(R.string.add_new_wallet);
         } else {
             walletAmount.setEnabled(false);
-            accountViewModel.getAccountById(id).observe(this, new Observer<Account>() {
-                @Override
-                public void onChanged(Account account) {
-                    if (account != null) {
-                        walletName.setText(account.getName());
-                        walletAmount.setText(String.valueOf(account.getCurrentAmount()));
-                        walletType.setSelection(Arrays.asList(Constants.WALLET_TYPES)
-                                .indexOf(account.getType()));
-                    }
+            accountViewModel.getAccountById(id).observe(this, account -> {
+                if (account != null) {
+                    walletName.setText(account.getName());
+                    walletAmount.setText(String.valueOf(account.getCurrentAmount()));
+                    walletType.setSelection(Arrays.asList(Constants.WALLET_TYPES)
+                            .indexOf(account.getType()));
                 }
             });
         }
@@ -107,7 +103,7 @@ public class AccountActivity extends AppCompatActivity implements OnCheckModelCo
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.context_menu, menu);
+        menuInflater.inflate(R.menu.delete_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -115,7 +111,8 @@ public class AccountActivity extends AppCompatActivity implements OnCheckModelCo
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.delete:
-                accountViewModel.checkTransactions(id);
+                Util.createDialogWithButtons(this, R.string.confirm_delete,
+                        (dialogInterface, i) -> accountViewModel.checkTransactions(id));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Display;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
@@ -94,10 +97,12 @@ public class Transactions extends Fragment implements OnItemClickListener {
                              @Nullable Bundle savedInstanceState) {
         Log.d(TAG, "onCreateView");
         calendar = Calendar.getInstance();
-        changeMillis();
         View view = inflater.inflate(R.layout.transactions_fragment, container, false);
+        setHasOptionsMenu(true);
+        changeMillis();
         appCompatActivity = (AppCompatActivity) getActivity();
         Toolbar toolbar = view.findViewById(R.id.toolbar);
+        toolbar.setTitle("");
         addTransactionButton = view.findViewById(R.id.add_transaction_button);
         ImageButton arrowLeft = view.findViewById(R.id.arrow_left);
         ImageButton arrowRight = view.findViewById(R.id.arrow_right);
@@ -235,5 +240,16 @@ public class Transactions extends Fragment implements OnItemClickListener {
             bundle = compat.toBundle();
         }
         startActivity(intent, bundle);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        inflater.inflate(R.menu.transactions_menu, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        return super.onOptionsItemSelected(item);
     }
 }

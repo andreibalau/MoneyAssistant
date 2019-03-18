@@ -3,9 +3,7 @@ package moneyassistant.expert.view.activity;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
-import androidx.room.util.StringUtil;
 import moneyassistant.expert.R;
 import moneyassistant.expert.model.entity.Account;
 import moneyassistant.expert.model.entity.Category;
@@ -94,7 +92,7 @@ public class TransactionActivity extends AppCompatActivity implements FragmentEv
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.context_menu, menu);
+        getMenuInflater().inflate(R.menu.delete_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
 

@@ -60,6 +60,7 @@
                     android:inputType="text"
                     android:textSize="14sp"
                     android:layout_weight="1"
+                    android:hint="@string/name_hint"
                     android:textColor="@color/colorDefault"
                     android:background="@color/colorWhite"
                     android:layout_width="match_parent"
@@ -105,7 +106,7 @@
                     android:textSize="14sp"
                     android:layout_gravity="center_vertical"
                     android:labelFor="@id/wallet_current_amount_input"
-                    android:text="@string/Amount"
+                    android:text="@string/icon"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
 

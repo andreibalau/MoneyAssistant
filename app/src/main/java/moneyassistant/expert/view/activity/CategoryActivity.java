@@ -11,7 +11,6 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Random;
@@ -103,7 +102,7 @@ public class CategoryActivity extends AppCompatActivity implements OnCheckModelC
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.context_menu, menu);
+        menuInflater.inflate(R.menu.delete_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -111,7 +110,9 @@ public class CategoryActivity extends AppCompatActivity implements OnCheckModelC
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.delete:
-                categoryViewModel.checkTransactions(id);
+                Util.createDialogWithButtons(this,
+                    R.string.confirm_delete, (dialogInterface, i)
+                                -> categoryViewModel.checkTransactions(id));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

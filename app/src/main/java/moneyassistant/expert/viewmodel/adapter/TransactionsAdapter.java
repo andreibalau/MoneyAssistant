@@ -54,6 +54,8 @@ public class TransactionsAdapter extends ListAdapter<TransactionWithCA,
                     Transaction t1 = oldItem.getTransaction();
                     Transaction t2 = newItem.getTransaction();
                     return t1.getType().equals(t2.getType()) &&
+                            t1.getDate().equals(t2.getDate()) &&
+                            t1.getAccountId() == t2.getAccountId() &&
                             t1.getDetails().equals(t2.getDetails()) &&
                             t1.getCategoryId() == t2.getCategoryId() &&
                             t1.getAmount() == t2.getAmount();

@@ -103,10 +103,16 @@
     <string name="error_delete">The following items can`t be deleted because they are linked to a transaction: </string>
     <string name="error_del">This item can`t be deleted because it is linked to a transaction!</string>
     <string name="ok">OK</string>
+    <string name="confirm_delete">Are you sure you want to delete this?</string>
     <string name="transfer_error">Source account and destination account are the same!</string>
     <string name="passcode_protect">Passcode Protection</string>
     <string name="enter_passcode">Enter Passcode</string>
     <string name="deleted">has been deleted!</string>
     <string name="details_label">Add a note</string>
     <string name="nthng_label">nothing selected</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="export">Export</string>
+    <string name="name_hint">type a name...</string>
+    <string name="amount_hint">enter amount...</string>
 </resources>

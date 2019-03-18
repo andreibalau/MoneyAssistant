@@ -42,10 +42,30 @@ public class Util {
                 .replace(R.id.FragmentContainer, fragment).commit();
     }
 
-    public static void createDialog(Context context, String message, String title,
+    public static void createDialogWithButtons(Context context, String message,
+                                               DialogInterface.OnClickListener onClickListener) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle(R.string.app_name);
+        builder.setMessage(message);
+        builder.setPositiveButton(R.string.yes, onClickListener);
+        builder.setNegativeButton(R.string.no, null);
+        builder.create().show();
+    }
+
+    public static void createDialogWithButtons(Context context, int message,
+                                               DialogInterface.OnClickListener onClickListener) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle(R.string.app_name);
+        builder.setMessage(message);
+        builder.setPositiveButton(R.string.yes, onClickListener);
+        builder.setNegativeButton(R.string.no, null);
+        builder.create().show();
+    }
+
+    public static void createDialog(Context context, String message,
                                     DialogInterface.OnClickListener clickListener) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle(title);
+        builder.setTitle(R.string.app_name);
         builder.setMessage(message);
         builder.setPositiveButton(R.string.ok, clickListener);
         builder.create().show();
@@ -54,31 +74,21 @@ public class Util {
     public static void createDialog(Context context, String message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setMessage(message);
-        builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                dialogInterface.dismiss();
-            }
-        });
+        builder.setPositiveButton(R.string.ok, (dialogInterface, i) -> dialogInterface.dismiss());
         builder.create().show();
     }
 
     public static void createDialog(Context context, int message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setMessage(message);
-        builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                dialogInterface.dismiss();
-            }
-        });
+        builder.setPositiveButton(R.string.ok, (dialogInterface, i) -> dialogInterface.dismiss());
         builder.create().show();
     }
 
-    public static void createDialog(Context context, int message, String title,
+    public static void createDialog(Context context, int message,
                                     DialogInterface.OnClickListener clickListener) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle(title);
+        builder.setTitle(R.string.app_name);
         builder.setMessage(message);
         builder.setPositiveButton(R.string.ok, clickListener);
         builder.create().show();
