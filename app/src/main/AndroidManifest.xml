@@ -12,17 +12,18 @@
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.activity.TransactionActivity"/>
-        <activity android:name=".view.activity.AddTransactionActivity" />
         <activity
-            android:theme="@style/AppThemeSplash"
-            android:name=".view.activity.SplashActivity">
+            android:name=".view.activity.SplashActivity"
+            android:theme="@style/AppThemeSplash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".view.activity.NotificationActivity" />
+        <activity android:name=".view.activity.TransactionActivity" />
+        <activity android:name=".view.activity.AddTransactionActivity" />
         <activity android:name=".view.activity.MainActivity" />
         <activity android:name=".view.activity.AccountActivity" />
         <activity android:name=".view.activity.CategoriesActivity" />
@@ -39,6 +40,14 @@
             android:name=".view.activity.CategoriesDialog"
             android:excludeFromRecents="true"
             android:theme="@style/AppTheme.Dialog" />
+        <activity
+            android:theme="@style/AppTheme.Dialog"
+            android:excludeFromRecents="true"
+            android:name=".view.activity.ExportActivity"/>
+        <service
+            android:name=".util.NotificationService"
+            android:label="Notify Process"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
     </application>
 
 </manifest>

@@ -9,6 +9,7 @@ import java.util.List;
 import androidx.lifecycle.LiveData;
 import moneyassistant.expert.model.AppDatabase;
 import moneyassistant.expert.model.dao.TransactionDao;
+import moneyassistant.expert.model.entity.Account;
 import moneyassistant.expert.model.entity.Transaction;
 import moneyassistant.expert.model.entity.TransactionWithCA;
 
@@ -22,15 +23,38 @@ public class TransactionRepository {
     }
 
     public void insert(final Transaction transaction) {
-        new Thread(() -> transactionDao.insert(transaction)).start();
+        new Thread(() -> {
+            transactionDao.insert(transaction);
+            computeAccountValue(transaction.getAccountId());
+        }).start();
     }
 
     public void update(final Transaction transaction) {
-        new Thread(() -> transactionDao.update(transaction)).start();
+        new Thread(() -> {
+            transactionDao.update(transaction);
+            computeAccountValue(transaction.getAccountId());
+        }).start();
     }
 
     public void delete(final Transaction transaction) {
-        new Thread(() -> transactionDao.delete(transaction)).start();
+        new Thread(() -> {
+            transactionDao.delete(transaction);
+            computeAccountValue(transaction.getAccountId());
+        }).start();
+    }
+
+    private void computeAccountValue(long accountId) {
+        List<Transaction> transactions = transactionDao.getTransactions(accountId);
+        double income = 0, expense = 0;
+        for (Transaction transaction : transactions) {
+            if (transaction.getType().equals(Transaction.TransactionTypes.Income)) {
+                income += transaction.getAmount();
+            } else if (transaction.getType().equals(Transaction.TransactionTypes.Expense)) {
+                expense += transaction.getAmount();
+            }
+        }
+        double result = income - expense;
+        transactionDao.computeAccountValue(result, accountId);
     }
 
     public LiveData<TransactionWithCA> getTransactionById(long id) {

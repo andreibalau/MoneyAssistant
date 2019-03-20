@@ -13,11 +13,14 @@ import moneyassistant.expert.util.Constants;
 import moneyassistant.expert.util.FragmentEvent;
 import moneyassistant.expert.util.Util;
 import moneyassistant.expert.view.fragment.BottomTransaction;
+import moneyassistant.expert.viewmodel.AccountViewModel;
 import moneyassistant.expert.viewmodel.TransactionViewModel;
 
+import android.content.DialogInterface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -35,6 +38,8 @@ public class TransactionActivity extends AppCompatActivity implements FragmentEv
     private TextView date;
 
     private TransactionWithCA transactionWithCA;
+
+    private TransactionViewModel transactionViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +61,7 @@ public class TransactionActivity extends AppCompatActivity implements FragmentEv
         details = findViewById(R.id.details);
         date = findViewById(R.id.date);
         long id = getIntent().getLongExtra(Constants.resourceId, 0);
-        TransactionViewModel transactionViewModel = ViewModelProviders.of(this)
+        transactionViewModel = ViewModelProviders.of(this)
                 .get(TransactionViewModel.class);
         transactionViewModel.getTransactionById(id)
                 .observe(this, transactionWithCA -> {
@@ -94,6 +99,20 @@ public class TransactionActivity extends AppCompatActivity implements FragmentEv
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.delete_menu, menu);
         return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.delete:
+                Util.createDialogWithButtons(this, R.string.confirm_delete,
+                        (dialogInterface, i) -> {
+                            transactionViewModel.delete(transactionWithCA.getTransaction());
+                            finish();
+                });
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

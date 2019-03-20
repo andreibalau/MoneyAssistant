@@ -24,6 +24,13 @@ public interface TransactionDao {
     @Delete
     void delete(Transaction transaction);
 
+    @Query(value = "select * from money_transaction where account_id_f = :accountId")
+    List<Transaction> getTransactions(long accountId);
+
+    @Query(value = "update account set account_current_amount = account_starting_amount + :value " +
+            "where account_id = :accountId")
+    void computeAccountValue(double value, long accountId);
+
     @Query("select * from money_transaction mt " +
             "inner join category c on mt.category_id_f == c.category_id " +
             "inner join account a on mt.account_id_f == a.account_id " +

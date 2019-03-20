@@ -13,6 +13,8 @@ public class Constants {
 
     public static final int SPLASH_SCREEN_TIMEOUT = 777;
 
+    public static final String CHANNEL_ID = "money_notification_channel";
+
     public static final String APP = "MoneyAssistant";
     public static final String resourceId = "id";
     public static final String CATEGORY = "category";

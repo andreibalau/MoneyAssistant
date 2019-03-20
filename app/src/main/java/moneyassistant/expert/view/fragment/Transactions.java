@@ -41,6 +41,7 @@ import moneyassistant.expert.util.Constants;
 import moneyassistant.expert.util.OnItemClickListener;
 import moneyassistant.expert.util.Util;
 import moneyassistant.expert.view.activity.AddTransactionActivity;
+import moneyassistant.expert.view.activity.ExportActivity;
 import moneyassistant.expert.view.activity.TransactionActivity;
 import moneyassistant.expert.viewmodel.TransactionViewModel;
 import moneyassistant.expert.viewmodel.adapter.TransactionsAdapter;
@@ -250,6 +251,11 @@ public class Transactions extends Fragment implements OnItemClickListener {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.export:
+                startActivity(new Intent(appCompatActivity, ExportActivity.class));
+                break;
+        }
         return super.onOptionsItemSelected(item);
     }
 }

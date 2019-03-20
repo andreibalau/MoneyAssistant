@@ -49,10 +49,6 @@ public class AccountViewModel extends AndroidViewModel {
         return accountRepository.getAccountById(id);
     }
 
-    public void computeAccountValue(Account account) {
-        accountRepository.computeAccountValue(account);
-    }
-
     public LiveData<List<Account>> getAccounts() {
         return accountRepository.getAccounts();
     }

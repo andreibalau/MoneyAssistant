@@ -113,6 +113,12 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="export">Export</string>
-    <string name="name_hint">type a name...</string>
-    <string name="amount_hint">enter amount...</string>
+    <string name="name_hint">type a name…</string>
+    <string name="amount_hint">enter amount…</string>
+    <string name="app_version">App version: 1.0.0</string>
+    <string name="notifications">Notifications</string>
+    <string name="notification_content">Don`t forget to record your transactions!</string>
+    <string name="csv_format">CSV</string>
+    <string name="xls_format">Excel</string>
+    <string name="format">Format</string>
 </resources>

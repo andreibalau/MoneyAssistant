@@ -1,6 +1,9 @@
 package moneyassistant.expert.util;
 
 import android.app.Activity;
+import android.app.job.JobInfo;
+import android.app.job.JobScheduler;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
@@ -28,6 +31,21 @@ import moneyassistant.expert.R;
 import static android.content.Context.MODE_PRIVATE;
 
 public class Util {
+
+    public static void launchJob(Context context, Class<?> cls, long millis) {
+        ComponentName serviceComponent = new ComponentName(context, cls);
+        JobInfo.Builder builder = new JobInfo.Builder(0, serviceComponent);
+        builder.setMinimumLatency(millis);
+        Object obj = context.getSystemService(Context.JOB_SCHEDULER_SERVICE);
+        JobScheduler jobScheduler = (JobScheduler) obj;
+        if (jobScheduler != null) jobScheduler.schedule(builder.build());
+    }
+
+    public static void stopJob(Context context) {
+        Object obj = context.getSystemService(Context.JOB_SCHEDULER_SERVICE);
+        JobScheduler jobScheduler = (JobScheduler) obj;
+        if (jobScheduler != null) jobScheduler.cancelAll();
+    }
 
     public static void customAnimation(Context context, View view, int duration, int anim) {
         Animation animation = AnimationUtils.loadAnimation(context, anim);

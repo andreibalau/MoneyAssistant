@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import moneyassistant.expert.R;
+import moneyassistant.expert.util.NotificationService;
 import moneyassistant.expert.util.Util;
 import moneyassistant.expert.view.fragment.Accounts;
 import moneyassistant.expert.view.fragment.Settings;
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity
         if (savedInstanceState == null) {
             Util.changeFragment(this, new Transactions());
         }
+        Util.launchJob(this, NotificationService.class, 1000);
     }
 
     @Override

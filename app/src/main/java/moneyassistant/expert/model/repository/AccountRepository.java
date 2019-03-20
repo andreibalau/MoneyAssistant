@@ -50,24 +50,6 @@ public class AccountRepository {
         }).start();
     }
 
-    public void computeAccountValue(Account account) {
-        new Thread(() -> {
-            List<Transaction> transactions = accountDao.getTransactions(account.getId());
-            double starting = account.getStartingAmount();
-            double income = 0, expense = 0;
-            for (Transaction transaction : transactions) {
-                if (transaction.getType().equals(Transaction.TransactionTypes.Income)) {
-                    income += transaction.getAmount();
-                } else if (transaction.getType().equals(Transaction.TransactionTypes.Expense)) {
-                    expense += transaction.getAmount();
-                }
-            }
-            double result = starting + income - expense;
-            account.setCurrentAmount(result);
-            accountDao.update(account);
-        }).start();
-    }
-
     public LiveData<Account> getAccountById(long id) {
         return accountDao.getAccount(id);
     }

@@ -151,7 +151,6 @@ public class BottomTransaction extends BottomSheetDialogFragment {
         }
         fragmentEvent.onSave();
         dismiss();
-        accountViewModel.computeAccountValue(a);
     }
 
     private void changeDate() {
