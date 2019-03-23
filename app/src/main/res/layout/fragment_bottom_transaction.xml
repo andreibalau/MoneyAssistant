@@ -43,9 +43,10 @@
     <View
         android:layout_marginTop="4dp"
         android:layout_marginBottom="4dp"
+        android:alpha="0.2"
         android:background="@color/colorGray"
         android:layout_width="match_parent"
-        android:layout_height="0.5dp" />
+        android:layout_height="1dp" />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -70,8 +71,9 @@
             android:layout_height="wrap_content" />
 
         <View
+            android:alpha="0.2"
             android:background="@color/colorGray"
-            android:layout_width="0.5dp"
+            android:layout_width="1dp"
             android:layout_height="match_parent" />
 
         <Spinner
@@ -86,9 +88,10 @@
     <View
         android:layout_marginTop="4dp"
         android:layout_marginBottom="4dp"
+        android:alpha="0.2"
         android:background="@color/colorGray"
         android:layout_width="match_parent"
-        android:layout_height="0.5dp" />
+        android:layout_height="1dp" />
 
     <EditText
         android:background="@color/colorWhite"
@@ -111,9 +114,10 @@
     <View
         android:layout_marginTop="4dp"
         android:layout_marginBottom="4dp"
+        android:alpha="0.2"
         android:background="@color/colorGray"
         android:layout_width="match_parent"
-        android:layout_height="0.5dp" />
+        android:layout_height="1dp" />
 
     <Button
         android:id="@+id/save"

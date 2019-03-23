@@ -1,18 +1,25 @@
 package moneyassistant.expert.util;
 
 import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.app.ProgressDialog;
 import android.app.job.JobInfo;
 import android.app.job.JobScheduler;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.net.ConnectivityManager;
+import android.os.Environment;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -32,19 +39,34 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class Util {
 
-    public static void launchJob(Context context, Class<?> cls, long millis) {
+    public static void launchJob(Context context, Class<?> cls) {
         ComponentName serviceComponent = new ComponentName(context, cls);
         JobInfo.Builder builder = new JobInfo.Builder(0, serviceComponent);
-        builder.setMinimumLatency(millis);
-        Object obj = context.getSystemService(Context.JOB_SCHEDULER_SERVICE);
-        JobScheduler jobScheduler = (JobScheduler) obj;
+        long millis = 1000 * 60 * 60 * 3;
+        builder.setMinimumLatency(3000);
+        JobScheduler jobScheduler = context.getSystemService(JobScheduler.class);
         if (jobScheduler != null) jobScheduler.schedule(builder.build());
     }
 
     public static void stopJob(Context context) {
-        Object obj = context.getSystemService(Context.JOB_SCHEDULER_SERVICE);
-        JobScheduler jobScheduler = (JobScheduler) obj;
+        JobScheduler jobScheduler = context.getSystemService(JobScheduler.class);
         if (jobScheduler != null) jobScheduler.cancelAll();
+    }
+
+    public static void startAlarmManager(Context context, Calendar calendar, Class cls) {
+        Intent alarmIntent = new Intent(context, cls);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, alarmIntent,
+                PendingIntent.FLAG_UPDATE_CURRENT);
+        AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        manager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
+                AlarmManager.INTERVAL_DAY, pendingIntent);
+    }
+
+    public static void stopAlarmManager(Context context, Class cls) {
+        Intent alarmIntent = new Intent(context, cls);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, alarmIntent, 0);
+        AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        manager.cancel(pendingIntent);
     }
 
     public static void customAnimation(Context context, View view, int duration, int anim) {

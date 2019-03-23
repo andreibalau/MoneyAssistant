@@ -150,7 +150,7 @@
             android:layout_below="@id/quick_stats"
             android:background="@color/colorPrimary"
             android:layout_width="match_parent"
-            android:layout_height="0.5dp" />
+            android:layout_height="1dp" />
 
         <ProgressBar
             android:id="@+id/progressbar"

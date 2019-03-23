@@ -6,10 +6,13 @@ import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.util.Calendar;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import moneyassistant.expert.R;
+import moneyassistant.expert.util.Constants;
 import moneyassistant.expert.util.NotificationService;
 import moneyassistant.expert.util.Util;
 import moneyassistant.expert.view.fragment.Accounts;
@@ -30,7 +33,14 @@ public class MainActivity extends AppCompatActivity
         if (savedInstanceState == null) {
             Util.changeFragment(this, new Transactions());
         }
-        Util.launchJob(this, NotificationService.class, 1000);
+        String notification = Util.getFromSharedPreferences(this, Constants.NOTIFICATION);
+        if (notification.equals("yes")) {
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTimeInMillis(System.currentTimeMillis());
+            calendar.set(Calendar.HOUR_OF_DAY, 20);
+            calendar.set(Calendar.MINUTE, 0);
+            Util.launchJob(this, NotificationService.class);
+        }
     }
 
     @Override

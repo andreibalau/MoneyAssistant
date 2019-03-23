@@ -25,7 +25,7 @@ public class NotificationService extends JobService {
                 .setSound(soundUri)
                 .setContentIntent(pendingIntent)
                 .setSmallIcon(R.mipmap.ic_launcher)
-                .setContentTitle(context.getResources().getString(R.string.app_name))
+                .setContentTitle(context.getResources().getString(R.string.notification_title))
                 .setContentText(context.getResources().getString(R.string.notification_content))
                 .setAutoCancel(true).build();
         NotificationManager notifManager = (NotificationManager)
@@ -38,7 +38,7 @@ public class NotificationService extends JobService {
     @Override
     public boolean onStartJob(JobParameters jobParameters) {
         sendNotification(this);
-        Util.launchJob(this, NotificationService.class, 43200000);
+        Util.launchJob(this, getClass());
         return true;
     }
 

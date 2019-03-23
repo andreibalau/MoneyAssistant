@@ -117,8 +117,18 @@
     <string name="amount_hint">enter amount…</string>
     <string name="app_version">App version: 1.0.0</string>
     <string name="notifications">Notifications</string>
+    <string name="notification_title">Transactions Manager</string>
     <string name="notification_content">Don`t forget to record your transactions!</string>
     <string name="csv_format">CSV</string>
     <string name="xls_format">Excel</string>
     <string name="format">Format</string>
+    <string name="intro">Intro</string>
+    <string name="skip">Skip</string>
+    <string name="finish">Start</string>
+    <string name="intro1_title">Simple Tracking</string>
+    <string name="intro1_content">Track your transactions within a few seconds</string>
+    <string name="intro2_title">Manage Wallets</string>
+    <string name="intro2_content">Manage and view your wallets easily</string>
+    <string name="intro3_title">Handle Categories</string>
+    <string name="intro3_content">Take control on your own transaction categories</string>
 </resources>
