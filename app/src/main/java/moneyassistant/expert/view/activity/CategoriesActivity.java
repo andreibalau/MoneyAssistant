@@ -1,37 +1,21 @@
 package moneyassistant.expert.view.activity;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
-import androidx.lifecycle.ViewModelProviders;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.ItemTouchHelper;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 import moneyassistant.expert.R;
-import moneyassistant.expert.model.entity.Category;
 import moneyassistant.expert.util.Constants;
-import moneyassistant.expert.util.OnCheckModelCount;
-import moneyassistant.expert.util.OnItemClickListener;
-import moneyassistant.expert.util.RecyclerItemTouchHelper;
-import moneyassistant.expert.util.Util;
 import moneyassistant.expert.view.fragment.ExpenseCategories;
 import moneyassistant.expert.view.fragment.IncomeCategories;
-import moneyassistant.expert.viewmodel.CategoryViewModel;
-import moneyassistant.expert.viewmodel.adapter.CategoryAdapter;
 import moneyassistant.expert.viewmodel.adapter.CategoryTabAdapter;
 
 public class CategoriesActivity extends AppCompatActivity {

@@ -1,9 +1,5 @@
 package moneyassistant.expert.util;
 
-import java.util.HashMap;
-
-import moneyassistant.expert.R;
-
 public class Constants {
 
     private Constants() {}

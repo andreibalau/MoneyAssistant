@@ -10,7 +10,6 @@ import androidx.lifecycle.LiveData;
 import moneyassistant.expert.model.AppDatabase;
 import moneyassistant.expert.model.dao.AccountDao;
 import moneyassistant.expert.model.entity.Account;
-import moneyassistant.expert.model.entity.Transaction;
 import moneyassistant.expert.util.OnCheckModelCount;
 
 public class AccountRepository {

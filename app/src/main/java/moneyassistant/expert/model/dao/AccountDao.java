@@ -9,7 +9,6 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 import moneyassistant.expert.model.entity.Account;
-import moneyassistant.expert.model.entity.Transaction;
 
 @Dao
 public interface AccountDao {

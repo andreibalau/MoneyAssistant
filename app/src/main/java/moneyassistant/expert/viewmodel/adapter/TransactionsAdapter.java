@@ -6,10 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import java.util.Calendar;
 import java.util.Locale;
 
 import androidx.annotation.NonNull;
@@ -18,7 +16,6 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 import moneyassistant.expert.R;
-import moneyassistant.expert.model.entity.Account;
 import moneyassistant.expert.model.entity.Category;
 import moneyassistant.expert.model.entity.Transaction;
 import moneyassistant.expert.model.entity.TransactionWithCA;

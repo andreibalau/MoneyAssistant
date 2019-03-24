@@ -1,11 +1,11 @@
 package moneyassistant.expert.view.activity;
 
+import android.os.Bundle;
+
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import moneyassistant.expert.R;
-
-import android.os.Bundle;
 
 public class NotificationActivity extends AppCompatActivity {
 

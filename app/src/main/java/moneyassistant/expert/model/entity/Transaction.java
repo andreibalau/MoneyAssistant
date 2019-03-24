@@ -1,7 +1,5 @@
 package moneyassistant.expert.model.entity;
 
-import java.util.Date;
-
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;

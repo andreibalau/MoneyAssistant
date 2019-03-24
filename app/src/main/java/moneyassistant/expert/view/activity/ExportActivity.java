@@ -1,17 +1,16 @@
 package moneyassistant.expert.view.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProviders;
-import moneyassistant.expert.R;
-import moneyassistant.expert.model.entity.Account;
-import moneyassistant.expert.viewmodel.AccountViewModel;
-import moneyassistant.expert.viewmodel.adapter.AccountSpinnerAdapter;
-
 import android.os.Bundle;
 import android.view.ViewGroup;
 import android.widget.Spinner;
 
 import java.util.ArrayList;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProviders;
+import moneyassistant.expert.R;
+import moneyassistant.expert.viewmodel.AccountViewModel;
+import moneyassistant.expert.viewmodel.adapter.AccountSpinnerAdapter;
 
 public class ExportActivity extends AppCompatActivity {
 

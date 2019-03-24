@@ -1,5 +1,15 @@
 package moneyassistant.expert.view.activity;
 
+import android.graphics.drawable.Drawable;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import java.util.Locale;
+
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -13,19 +23,7 @@ import moneyassistant.expert.util.Constants;
 import moneyassistant.expert.util.FragmentEvent;
 import moneyassistant.expert.util.Util;
 import moneyassistant.expert.view.fragment.BottomTransaction;
-import moneyassistant.expert.viewmodel.AccountViewModel;
 import moneyassistant.expert.viewmodel.TransactionViewModel;
-
-import android.content.DialogInterface;
-import android.graphics.drawable.Drawable;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
-
-import java.util.Locale;
 
 public class TransactionActivity extends AppCompatActivity implements FragmentEvent {
 

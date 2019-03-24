@@ -1,6 +1,5 @@
 package moneyassistant.expert.model.dao;
 
-import java.util.Date;
 import java.util.List;
 
 import androidx.lifecycle.LiveData;

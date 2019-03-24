@@ -1,12 +1,9 @@
 package moneyassistant.expert.viewmodel;
 
 import android.app.Application;
-import android.os.Build;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.stream.Collectors;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;

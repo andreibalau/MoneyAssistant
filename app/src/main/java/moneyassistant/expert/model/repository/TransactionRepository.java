@@ -9,7 +9,6 @@ import java.util.List;
 import androidx.lifecycle.LiveData;
 import moneyassistant.expert.model.AppDatabase;
 import moneyassistant.expert.model.dao.TransactionDao;
-import moneyassistant.expert.model.entity.Account;
 import moneyassistant.expert.model.entity.Transaction;
 import moneyassistant.expert.model.entity.TransactionWithCA;
 

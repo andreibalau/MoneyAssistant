@@ -8,7 +8,6 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import moneyassistant.expert.model.entity.Account;
-import moneyassistant.expert.model.entity.Transaction;
 import moneyassistant.expert.model.repository.AccountRepository;
 import moneyassistant.expert.util.OnCheckModelCount;
 
