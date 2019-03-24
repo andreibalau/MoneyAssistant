@@ -39,7 +39,7 @@ public class Util {
         ComponentName serviceComponent = new ComponentName(context, cls);
         JobInfo.Builder builder = new JobInfo.Builder(0, serviceComponent);
         long millis = 1000 * 60 * 60 * 3;
-        builder.setMinimumLatency(3000);
+        builder.setMinimumLatency(millis);
         JobScheduler jobScheduler = context.getSystemService(JobScheduler.class);
         if (jobScheduler != null) jobScheduler.schedule(builder.build());
     }
@@ -54,15 +54,19 @@ public class Util {
         PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, alarmIntent,
                 PendingIntent.FLAG_UPDATE_CURRENT);
         AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        manager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
-                AlarmManager.INTERVAL_DAY, pendingIntent);
+        if (manager != null) {
+            manager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
+                    AlarmManager.INTERVAL_DAY, pendingIntent);
+        }
     }
 
     public static void stopAlarmManager(Context context, Class cls) {
         Intent alarmIntent = new Intent(context, cls);
         PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, alarmIntent, 0);
         AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        manager.cancel(pendingIntent);
+        if (manager != null) {
+            manager.cancel(pendingIntent);
+        }
     }
 
     public static void customAnimation(Context context, View view, int duration, int anim) {

@@ -98,6 +98,11 @@ public class BottomTransaction extends BottomSheetDialogFragment {
         }
         accountViewModel.getAccounts().observe(this, accounts -> {
             accountSpinnerAdapter.submitList(accounts);
+            if (accounts.isEmpty()) {
+                Util.createDialog(context, R.string.no_accounts);
+                dismiss();
+                return;
+            }
             for (Account a : accounts) {
                 if (a.getId() == t.getAccountId()) {
                     account.setSelection(accounts.indexOf(a));

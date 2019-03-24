@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import java.util.Calendar;
 
@@ -36,6 +37,7 @@ public class AddTransactionActivity extends AppCompatActivity
     private CategoryAdapter categoryAdapter;
     private CategoryViewModel categoryViewModel;
     private String type;
+    private TextView noContent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,14 +45,14 @@ public class AddTransactionActivity extends AppCompatActivity
         setContentView(R.layout.activity_add_transaction);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setTitle("");
-        categoryViewModel = ViewModelProviders.of(this)
-                .get(CategoryViewModel.class);
+        categoryViewModel = ViewModelProviders.of(this).get(CategoryViewModel.class);
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setHomeAsUpIndicator(R.drawable.ic_baseline_close_24px);
         }
+        noContent = findViewById(R.id.no_content);
         Spinner spinner = findViewById(R.id.spinner);
         ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>
                 (this, R.layout.spinner_item2,
@@ -70,7 +72,10 @@ public class AddTransactionActivity extends AppCompatActivity
                         Transaction.TransactionTypes.Income;
                 categoryViewModel.getCategories(type).removeObservers(AddTransactionActivity.this);
                 categoryViewModel.getCategories(type).observe(AddTransactionActivity.this,
-                        categories -> categoryAdapter.submitList(categories));
+                        categories -> {
+                            categoryAdapter.submitList(categories);
+                            noContent.setVisibility(categories.isEmpty() ? View.VISIBLE : View.GONE);
+                        });
             }
 
             @Override

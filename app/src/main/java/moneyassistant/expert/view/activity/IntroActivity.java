@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 import moneyassistant.expert.R;
 import moneyassistant.expert.util.Constants;
+import moneyassistant.expert.util.NotificationService;
 import moneyassistant.expert.util.Util;
 import moneyassistant.expert.view.fragment.IntroFragment1;
 import moneyassistant.expert.view.fragment.IntroFragment2;
@@ -25,7 +26,11 @@ public class IntroActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intro);
-        Util.putInSharedPreferences(this, Constants.NOTIFICATION, "yes");
+        String[] array = getResources().getStringArray(R.array.group_currency);
+        Util.putInSharedPreferences(this, Constants.NOTIFICATION, "true");
+        Util.putInSharedPreferences(this, Constants.FIRST_TIME_RUN, "false");
+        Util.putInSharedPreferences(this, Constants.PREFERED_CURRENCY, array[1]);
+        Util.launchJob(this, NotificationService.class);
         SectionsPagerAdapter mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
         mSectionsPagerAdapter.addFragment(new IntroFragment1());
         mSectionsPagerAdapter.addFragment(new IntroFragment2());

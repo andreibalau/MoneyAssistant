@@ -20,6 +20,7 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <Switch
+        android:background="@color/colorWhite"
         android:id="@+id/notification"
         android:paddingTop="8dp"
         android:paddingBottom="8dp"

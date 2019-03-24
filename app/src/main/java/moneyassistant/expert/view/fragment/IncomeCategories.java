@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
 
@@ -39,6 +40,7 @@ public class IncomeCategories extends Fragment
     private int deletedIndex;
     private Category deletedItem;
     private AppCompatActivity appCompatActivity;
+    private TextView noContent;
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -55,6 +57,7 @@ public class IncomeCategories extends Fragment
         categoryViewModel.setOnCheckModelCount(this);
         RecyclerView recyclerView = view.findViewById(R.id.recycler);
         coordinatorLayout = view.findViewById(R.id.coordinator);
+        noContent = view.findViewById(R.id.no_content);
         categoryAdapter = new CategoryAdapter(this, R.layout.category_view);
         recyclerView.setAdapter(categoryAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(appCompatActivity));
@@ -65,7 +68,10 @@ public class IncomeCategories extends Fragment
         simpleCallback.setCategoryAdapter(categoryAdapter);
         new ItemTouchHelper(simpleCallback).attachToRecyclerView(recyclerView);
         categoryViewModel.getCategories(Category.CategoryTypes.Income)
-                .observe(this, categories -> categoryAdapter.submitList(categories));
+                .observe(this, categories -> {
+                    categoryAdapter.submitList(categories);
+                    noContent.setVisibility(categories.isEmpty() ? View.VISIBLE : View.GONE);
+                });
         return view;
     }
 

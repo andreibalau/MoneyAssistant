@@ -10,6 +10,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
 
@@ -50,6 +51,7 @@ public class Accounts extends Fragment
     private int deletedIndex;
     private Account deletedItem;
     private AppCompatActivity appCompatActivity;
+    private TextView noContent;
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -70,6 +72,7 @@ public class Accounts extends Fragment
         Toolbar toolbar = view.findViewById(R.id.toolbar);
         RecyclerView recyclerView = view.findViewById(R.id.wallets_recycler);
         coordinatorLayout = view.findViewById(R.id.coordinator);
+        noContent = view.findViewById(R.id.no_content);
         appCompatActivity = (AppCompatActivity) getActivity();
         toolbar.setTitle(R.string.accounts);
         accountAdapter = new AccountAdapter(this);
@@ -84,8 +87,10 @@ public class Accounts extends Fragment
         recyclerView.addItemDecoration(new DividerItemDecoration(appCompatActivity,
                 DividerItemDecoration.VERTICAL));
         appCompatActivity.setSupportActionBar(toolbar);
-        accountViewModel.getAccounts().observe(this,
-                accounts -> accountAdapter.submitList(accounts));
+        accountViewModel.getAccounts().observe(this, accounts -> {
+            accountAdapter.submitList(accounts);
+            noContent.setVisibility(accounts.isEmpty() ? View.VISIBLE : View.GONE);
+        });
         return view;
     }
 

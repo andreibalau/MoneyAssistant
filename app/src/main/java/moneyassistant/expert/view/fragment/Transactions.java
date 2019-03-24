@@ -53,7 +53,7 @@ public class Transactions extends Fragment implements OnItemClickListener {
     private TextView incomeValue;
     private TextView expenseValue;
     private FloatingActionButton addTransactionButton;
-
+    private TextView noContent;
     private TextView indicator;
     private Calendar calendar;
     private TransactionViewModel transactionViewModel;
@@ -99,6 +99,7 @@ public class Transactions extends Fragment implements OnItemClickListener {
         appCompatActivity = (AppCompatActivity) getActivity();
         Toolbar toolbar = view.findViewById(R.id.toolbar);
         toolbar.setTitle("");
+        noContent = view.findViewById(R.id.no_content);
         addTransactionButton = view.findViewById(R.id.add_transaction_button);
         ImageButton arrowLeft = view.findViewById(R.id.arrow_left);
         ImageButton arrowRight = view.findViewById(R.id.arrow_right);
@@ -217,6 +218,7 @@ public class Transactions extends Fragment implements OnItemClickListener {
         transactionsAdapter.submitList(transactions);
         progressBar.setVisibility(View.GONE);
         transactionsRecycler.setVisibility(View.VISIBLE);
+        noContent.setVisibility(transactions.isEmpty() ? View.VISIBLE : View.GONE);
     }
 
     @Override
@@ -240,7 +242,7 @@ public class Transactions extends Fragment implements OnItemClickListener {
 
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
-        inflater.inflate(R.menu.transactions_menu, menu);
+//        inflater.inflate(R.menu.transactions_menu, menu);
         super.onCreateOptionsMenu(menu, inflater);
     }
 

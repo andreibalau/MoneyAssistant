@@ -18,7 +18,7 @@ public class SplashActivity extends AppCompatActivity {
         setContentView(R.layout.activity_splash);
         String firstTime = Util.getFromSharedPreferences(this, Constants.FIRST_TIME_RUN);
         new Handler().postDelayed(() -> {
-            if (firstTime.equals("") || firstTime.equals("yes")) {
+            if (firstTime.equals("") || firstTime.equals("true")) {
                 startActivity(new Intent(SplashActivity.this, IntroActivity.class));
             } else {
                 startActivity(new Intent(SplashActivity.this, MainActivity.class));
