@@ -40,7 +40,7 @@ public class Settings extends Fragment {
         }
         TextView categories = view.findViewById(R.id.categories);
         TextView currency = view.findViewById(R.id.currency);
-        TextView language = view.findViewById(R.id.language);
+//        TextView language = view.findViewById(R.id.language);
         TextView about = view.findViewById(R.id.about);
         TextView share = view.findViewById(R.id.share);
         TextView notifications = view.findViewById(R.id.notifications);
@@ -55,9 +55,9 @@ public class Settings extends Fragment {
                     String[] array = getResources().getStringArray(R.array.group_currency);
                     Util.putInSharedPreferences(appCompatActivity, Constants.PREFERED_CURRENCY, array[i]);
                 }));
-        language.setOnClickListener(view16 -> {
-
-        });
+//        language.setOnClickListener(view16 -> {
+//
+//        });
         about.setOnClickListener(view17 -> {
             Dialog dialog = new Dialog(appCompatActivity);
             dialog.setContentView(R.layout.about_dialog);

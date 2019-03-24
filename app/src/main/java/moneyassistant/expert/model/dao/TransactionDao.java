@@ -42,7 +42,8 @@ public interface TransactionDao {
             "where " +
             "(mt.transaction_day >= :d1 and mt.transaction_month >= :m1 and mt.transaction_year >= :y1) " +
             "and " +
-            "(mt.transaction_day <= :d2 and mt.transaction_month <= :m2 and mt.transaction_year <= :y2)")
+            "(mt.transaction_day <= :d2 and mt.transaction_month <= :m2 and mt.transaction_year <= :y2) " +
+            "order by mt.transaction_month asc, mt.transaction_day asc")
     LiveData<List<TransactionWithCA>> getTransactions(int d1, int m1, int y1,
                                                       int d2, int m2, int y2);
 

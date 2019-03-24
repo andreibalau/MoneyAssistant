@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -38,6 +39,7 @@ public class AddTransactionActivity extends AppCompatActivity
     private CategoryViewModel categoryViewModel;
     private String type;
     private TextView noContent;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +55,7 @@ public class AddTransactionActivity extends AppCompatActivity
             actionBar.setHomeAsUpIndicator(R.drawable.ic_baseline_close_24px);
         }
         noContent = findViewById(R.id.no_content);
+        progressBar = findViewById(R.id.progressbar);
         Spinner spinner = findViewById(R.id.spinner);
         ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>
                 (this, R.layout.spinner_item2,
@@ -68,12 +71,14 @@ public class AddTransactionActivity extends AppCompatActivity
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                progressBar.setVisibility(View.VISIBLE);
                 type = i == 1 ? Transaction.TransactionTypes.Expense :
                         Transaction.TransactionTypes.Income;
                 categoryViewModel.getCategories(type).removeObservers(AddTransactionActivity.this);
                 categoryViewModel.getCategories(type).observe(AddTransactionActivity.this,
                         categories -> {
                             categoryAdapter.submitList(categories);
+                            progressBar.setVisibility(View.GONE);
                             noContent.setVisibility(categories.isEmpty() ? View.VISIBLE : View.GONE);
                         });
             }
