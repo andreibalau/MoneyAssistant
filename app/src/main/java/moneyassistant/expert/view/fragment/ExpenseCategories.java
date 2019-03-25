@@ -90,7 +90,7 @@ public class ExpenseCategories extends Fragment
                     .make(coordinatorLayout, deletedItem.getName() + " " +
                             getString(R.string.deleted), Snackbar.LENGTH_LONG);
             snackbar.setAction("UNDO", view -> categoryViewModel.insert(deletedItem));
-            snackbar.setActionTextColor(appCompatActivity.getColor(R.color.colorAccent));
+            snackbar.setActionTextColor(appCompatActivity.getColor(R.color.colorWhite));
             snackbar.show();
         }
     }

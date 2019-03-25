@@ -2,6 +2,7 @@ package moneyassistant.expert.view.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 
 import java.util.Calendar;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -35,14 +37,19 @@ import moneyassistant.expert.viewmodel.adapter.CategoryAdapter;
 public class AddTransactionActivity extends AppCompatActivity
         implements FragmentEvent, OnItemClickListener {
 
+    private static final String TAG = "AddTransactionActivity";
+    
     private CategoryAdapter categoryAdapter;
     private CategoryViewModel categoryViewModel;
     private String type;
     private TextView noContent;
     private ProgressBar progressBar;
+    private int position = 1;
+    private Spinner spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d(TAG, "onCreate");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_transaction);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -56,7 +63,7 @@ public class AddTransactionActivity extends AppCompatActivity
         }
         noContent = findViewById(R.id.no_content);
         progressBar = findViewById(R.id.progressbar);
-        Spinner spinner = findViewById(R.id.spinner);
+        spinner = findViewById(R.id.spinner);
         ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>
                 (this, R.layout.spinner_item2,
                         getResources().getStringArray(R.array.group_category));
@@ -67,10 +74,10 @@ public class AddTransactionActivity extends AppCompatActivity
         categoriesRecycler.setAdapter(categoryAdapter);
         categoriesRecycler.setLayoutManager(new GridLayoutManager(this, 3));
         categoriesRecycler.setItemAnimator(new DefaultItemAnimator());
-        spinner.setSelection(1);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                Log.d(TAG, "onItemSelected: " + i);
                 progressBar.setVisibility(View.VISIBLE);
                 type = i == 1 ? Transaction.TransactionTypes.Expense :
                         Transaction.TransactionTypes.Income;
@@ -89,13 +96,29 @@ public class AddTransactionActivity extends AppCompatActivity
     }
 
     @Override
+    protected void onResume() {
+        Log.d(TAG, "onResume");
+        super.onResume();
+        spinner.setSelection(position);
+    }
+
+    @Override
+    protected void onPause() {
+        Log.d(TAG, "onPause");
+        super.onPause();
+        position = spinner.getSelectedItemPosition();
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        Log.d(TAG, "onCreateOptionsMenu");
         getMenuInflater().inflate(R.menu.add_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        Log.d(TAG, "onOptionsItemSelected");
         switch (item.getItemId()) {
             case R.id.add:
                 Intent intent = new Intent(this, CategoryActivity.class);
@@ -108,23 +131,27 @@ public class AddTransactionActivity extends AppCompatActivity
 
     @Override
     public boolean onSupportNavigateUp() {
+        Log.d(TAG, "onSupportNavigateUp");
         onBackPressed();
         return super.onSupportNavigateUp();
     }
 
     @Override
     public void onBackPressed() {
+        Log.d(TAG, "onBackPressed");
         super.onBackPressed();
         overridePendingTransition(R.anim.stay, R.anim.slide_out_down);
     }
 
     @Override
     public void onSave() {
+        Log.d(TAG, "onSave");
         onBackPressed();
     }
 
     @Override
     public void onClick(int position) {
+        Log.d(TAG, "onClick: "+position);
         Category category = categoryAdapter.getCategoryAt(position);
         TransactionWithCA transactionWithCA = new TransactionWithCA();
         transactionWithCA.setCategory(category);

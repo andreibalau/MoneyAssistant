@@ -23,8 +23,12 @@ public interface TransactionDao {
     @Delete
     void delete(Transaction transaction);
 
-    @Query(value = "select * from money_transaction where account_id_f = :accountId")
-    List<Transaction> getTransactions(long accountId);
+    @Query(value = "select sum(transaction_amount) from money_transaction " +
+            "where account_id_f = :accountId and transaction_type = :type")
+    double getTransactionSum(long accountId, String type);
+
+    @Query(value = "select account_id from account")
+    List<Long> getAccountIds();
 
     @Query(value = "update account set account_current_amount = account_starting_amount + :value " +
             "where account_id = :accountId")

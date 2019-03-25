@@ -24,36 +24,32 @@ public class TransactionRepository {
     public void insert(final Transaction transaction) {
         new Thread(() -> {
             transactionDao.insert(transaction);
-            computeAccountValue(transaction.getAccountId());
+            computeAccountsValue();
         }).start();
     }
 
     public void update(final Transaction transaction) {
         new Thread(() -> {
             transactionDao.update(transaction);
-            computeAccountValue(transaction.getAccountId());
+            computeAccountsValue();
         }).start();
     }
 
     public void delete(final Transaction transaction) {
         new Thread(() -> {
             transactionDao.delete(transaction);
-            computeAccountValue(transaction.getAccountId());
+            computeAccountsValue();
         }).start();
     }
 
-    private void computeAccountValue(long accountId) {
-        List<Transaction> transactions = transactionDao.getTransactions(accountId);
-        double income = 0, expense = 0;
-        for (Transaction transaction : transactions) {
-            if (transaction.getType().equals(Transaction.TransactionTypes.Income)) {
-                income += transaction.getAmount();
-            } else if (transaction.getType().equals(Transaction.TransactionTypes.Expense)) {
-                expense += transaction.getAmount();
-            }
+    private void computeAccountsValue() {
+        List<Long> accountIds = transactionDao.getAccountIds();
+        for (Long accountId : accountIds) {
+            double income = transactionDao.getTransactionSum(accountId, Transaction.TransactionTypes.Income);
+            double expense = transactionDao.getTransactionSum(accountId, Transaction.TransactionTypes.Expense);
+            double result = income - expense;
+            transactionDao.computeAccountValue(result, accountId);
         }
-        double result = income - expense;
-        transactionDao.computeAccountValue(result, accountId);
     }
 
     public LiveData<TransactionWithCA> getTransactionById(long id) {
