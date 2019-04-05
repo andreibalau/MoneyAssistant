@@ -18,12 +18,8 @@ public class Constants {
 
     public static final int CHANGE_ICON_REQUEST_CODE = 11;
     public static final int CHANGE_ICON_RESULT_CODE = 12;
-    public static final int CHANGE_ACCOUNT_REQUEST_CODE = 13;
-    public static final int CHANGE_ACCOUNT_RESULT_CODE = 14;
-    public static final int CHANGE_CATEGORY_REQUEST_CODE = 15;
-    public static final int CHANGE_CATEGORY_RESULT_CODE = 16;
-    public static final int CHANGE_ACCOUNT2_REQUEST_CODE = 17;
-    public static final int CHANGE_ACCOUNT2_RESULT_CODE = 18;
+    public static final int DATE_RANGE_REQUEST_CODE = 13;
+    public static final int DATE_RANGE_RESULT_CODE = 14;
 
     public static final String INCOME = "income";
     public static final String EXPENSE = "expense";
@@ -34,6 +30,7 @@ public class Constants {
     public static final String DATE_FORMAT_3 = "yyyy";
     public static final String DATE_FORMAT_4 = "dd MMM yyyy";
     public static final String DATE_FORMAT_5 = "MMM yyyy";
+    public static final String DATE_FORMAT_6 = "MMM";
 
     public static final String[] WALLET_TYPES = new String[] {
             "bank",

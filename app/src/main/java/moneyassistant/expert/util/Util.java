@@ -38,7 +38,7 @@ public class Util {
     public static void launchJob(Context context, Class<?> cls) {
         ComponentName serviceComponent = new ComponentName(context, cls);
         JobInfo.Builder builder = new JobInfo.Builder(0, serviceComponent);
-        long millis = 1000 * 60 * 60 * 3;
+        long millis = 1000 * 60 * 60 * 20;
         builder.setMinimumLatency(millis);
         JobScheduler jobScheduler = context.getSystemService(JobScheduler.class);
         if (jobScheduler != null) jobScheduler.schedule(builder.build());

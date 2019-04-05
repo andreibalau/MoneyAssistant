@@ -20,11 +20,12 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
             <meta-data
                 android:name="android.app.shortcuts"
                 android:resource="@xml/shortcuts" />
         </activity>
-        <activity android:name=".view.activity.IntroActivity"/>
+        <activity android:name=".view.activity.IntroActivity" />
         <activity android:name=".view.activity.NotificationActivity" />
         <activity android:name=".view.activity.TransactionActivity" />
         <activity android:name=".view.activity.AddTransactionActivity" />
@@ -37,23 +38,17 @@
             android:excludeFromRecents="true"
             android:theme="@style/AppTheme.Dialog" />
         <activity
-            android:name=".view.activity.AccountsDialog"
-            android:excludeFromRecents="true"
-            android:theme="@style/AppTheme.Dialog" />
-        <activity
-            android:name=".view.activity.CategoriesDialog"
-            android:excludeFromRecents="true"
-            android:theme="@style/AppTheme.Dialog" />
-        <activity
             android:name=".view.activity.ExportActivity"
             android:excludeFromRecents="true"
             android:theme="@style/AppTheme.Dialog" />
-
+        <activity
+            android:excludeFromRecents="true"
+            android:theme="@style/AppTheme.Dialog"
+            android:name=".view.activity.DateRangeDialog"/>
         <service
             android:name=".util.NotificationService"
             android:label="Notify Process"
             android:permission="android.permission.BIND_JOB_SERVICE" />
-
     </application>
 
 </manifest>

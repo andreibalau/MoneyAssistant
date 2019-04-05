@@ -16,7 +16,7 @@ import moneyassistant.expert.R;
 import moneyassistant.expert.util.Constants;
 import moneyassistant.expert.view.fragment.ExpenseCategories;
 import moneyassistant.expert.view.fragment.IncomeCategories;
-import moneyassistant.expert.viewmodel.adapter.CategoryTabAdapter;
+import moneyassistant.expert.viewmodel.adapter.TabAdapter;
 
 public class CategoriesActivity extends AppCompatActivity {
 
@@ -33,10 +33,10 @@ public class CategoriesActivity extends AppCompatActivity {
         }
         TabLayout tabLayout = findViewById(R.id.tab_layout);
         ViewPager viewPager = findViewById(R.id.view_pager);
-        CategoryTabAdapter categoryTabAdapter = new CategoryTabAdapter(getSupportFragmentManager());
-        categoryTabAdapter.addFragment(new ExpenseCategories(), "Expense");
-        categoryTabAdapter.addFragment(new IncomeCategories(), "Income");
-        viewPager.setAdapter(categoryTabAdapter);
+        TabAdapter tabAdapter = new TabAdapter(getSupportFragmentManager());
+        tabAdapter.addFragment(new ExpenseCategories(), "Expense");
+        tabAdapter.addFragment(new IncomeCategories(), "Income");
+        viewPager.setAdapter(tabAdapter);
         tabLayout.setupWithViewPager(viewPager);
     }
 

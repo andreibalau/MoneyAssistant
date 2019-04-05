@@ -9,10 +9,10 @@
         android:title="@string/transactions"
         tools:ignore="AlwaysShowAction" />
 
-    <!--<item android:id="@+id/reports"-->
-        <!--app:showAsAction="always|withText"-->
-        <!--android:icon="@drawable/ic_baseline_equalizer_24px"-->
-        <!--android:title="@string/reports"/>-->
+    <item android:id="@+id/reports"
+        app:showAsAction="always|withText"
+        android:icon="@drawable/ic_baseline_equalizer_24px"
+        android:title="@string/reports"/>
 
     <item android:id="@+id/accounts"
         app:showAsAction="always|withText"

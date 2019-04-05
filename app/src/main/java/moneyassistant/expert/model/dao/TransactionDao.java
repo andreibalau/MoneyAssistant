@@ -51,4 +51,15 @@ public interface TransactionDao {
     LiveData<List<TransactionWithCA>> getTransactions(int d1, int m1, int y1,
                                                       int d2, int m2, int y2);
 
+    @Query("select * from money_transaction mt " +
+            "inner join category c on mt.category_id_f == c.category_id " +
+            "where " +
+            "(mt.transaction_day >= :d1 and mt.transaction_month >= :m1 and mt.transaction_year >= :y1) " +
+            "and " +
+            "(mt.transaction_day <= :d2 and mt.transaction_month <= :m2 and mt.transaction_year <= :y2) " +
+            "and mt.transaction_type = :type " +
+            "order by mt.transaction_month asc, mt.transaction_day asc")
+    LiveData<List<TransactionWithCA>> getTransactions(int d1, int m1, int y1,
+                                                      int d2, int m2, int y2, String type);
+
 }

@@ -76,7 +76,6 @@ public class Accounts extends Fragment
         coordinatorLayout = view.findViewById(R.id.coordinator);
         noContent = view.findViewById(R.id.no_content);
         progressBar = view.findViewById(R.id.progressbar);
-        appCompatActivity = (AppCompatActivity) getActivity();
         toolbar.setTitle(R.string.accounts);
         accountAdapter = new AccountAdapter(this);
         recyclerView.setAdapter(accountAdapter);

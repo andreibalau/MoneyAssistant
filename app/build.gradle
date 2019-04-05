@@ -6,8 +6,8 @@ android {
         applicationId "moneyassistant.expert"
         minSdkVersion 23
         targetSdkVersion 28
-        versionCode 2
-        versionName "1.0.2"
+        versionCode 3
+        versionName "1.0.3"
         vectorDrawables.useSupportLibrary = true
     }
     buildTypes {
@@ -22,6 +22,10 @@ android {
     }
 }
 
+repositories {
+    maven { url 'https://jitpack.io' }
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.appcompat:appcompat:1.1.0-alpha03'
@@ -33,5 +37,6 @@ dependencies {
     implementation 'androidx.room:room-runtime:2.1.0-alpha06'
     implementation 'androidx.lifecycle:lifecycle-viewmodel:2.1.0-alpha03'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0-alpha03'
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
     annotationProcessor 'androidx.room:room-compiler:2.1.0-alpha06'
 }

@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Money Assistant</string>
-    <string name="app_version">App version: 1.0.2</string>
+    <string name="app_version">App version: 1.0.3</string>
     <string name="transactions">Transactions</string>
     <string name="display_type">Display type</string>
     <string name="press_again">Press back again for exit!</string>
@@ -95,4 +95,6 @@
     <string name="short_label">Create Transaction</string>
     <string name="long_label">Create Transaction</string>
     <string name="disabled_label">Money Assistant</string>
+    <string name="from">From:</string>
+    <string name="to">To:</string>
 </resources>

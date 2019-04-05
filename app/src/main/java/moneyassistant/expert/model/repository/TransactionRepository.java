@@ -69,4 +69,18 @@ public class TransactionRepository {
         year2 = calendar.get(Calendar.YEAR);
         return transactionDao.getTransactions(day1, month1, year1, day2, month2, year2);
     }
+
+    public LiveData<List<TransactionWithCA>> getTransactions(Date s, Date e, String type) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(s);
+        int day1, month1, year1, day2, month2, year2;
+        day1 = calendar.get(Calendar.DAY_OF_MONTH);
+        month1 = calendar.get(Calendar.MONTH);
+        year1 = calendar.get(Calendar.YEAR);
+        calendar.setTime(e);
+        day2 = calendar.get(Calendar.DAY_OF_MONTH);
+        month2 = calendar.get(Calendar.MONTH);
+        year2 = calendar.get(Calendar.YEAR);
+        return transactionDao.getTransactions(day1, month1, year1, day2, month2, year2, type);
+    }
 }

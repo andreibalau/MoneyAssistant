@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import moneyassistant.expert.R;
 import moneyassistant.expert.util.Util;
 import moneyassistant.expert.view.fragment.Accounts;
+import moneyassistant.expert.view.fragment.Reports;
 import moneyassistant.expert.view.fragment.Settings;
 import moneyassistant.expert.view.fragment.Transactions;
 
@@ -50,10 +51,10 @@ public class MainActivity extends AppCompatActivity
                 fragment = new Transactions();
                 item.setChecked(true);
                 break;
-//            case R.id.reports:
-//                fragment = new Reports();
-//                item.setChecked(true);
-//                break;
+            case R.id.reports:
+                fragment = new Reports();
+                item.setChecked(true);
+                break;
             case R.id.accounts:
                 fragment = new Accounts();
                 item.setChecked(true);
