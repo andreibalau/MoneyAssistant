@@ -12,3 +12,7 @@ Money Assistant is a finance tool application special made for transactions. It 
 - control notifications
 
 Money Assistant does not required internet connection, so all the features are available offline. Also the application can be used for free, without features restriction.
+
+## License
+MoneyAssistant is licensed under the [GPL-3.0](https://github.com/icatalin201/MoneyAssistant/blob/master/LICENSE) license.
+
