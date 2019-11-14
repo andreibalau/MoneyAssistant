@@ -51,10 +51,6 @@ public class MainActivity extends AppCompatActivity
                 fragment = new Transactions();
                 item.setChecked(true);
                 break;
-            case R.id.reports:
-                fragment = new Reports();
-                item.setChecked(true);
-                break;
             case R.id.accounts:
                 fragment = new Accounts();
                 item.setChecked(true);

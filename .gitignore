@@ -1,12 +1,5 @@
-
 \.gradle/
-
 \.idea/
-
 gradle/
-
 local\.properties
-
-*.png
-
 app/release/

@@ -36,6 +36,7 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+
 import moneyassistant.expert.R;
 import moneyassistant.expert.model.entity.Category;
 import moneyassistant.expert.model.entity.Transaction;
@@ -86,7 +87,7 @@ public class IncomeReports extends Fragment implements OnChartValueSelectedListe
         calendar.set(Calendar.DAY_OF_MONTH, maxmDay);
         Date end = calendar.getTime();
         transactionViewModel.getTransactions(start, end, Transaction.TransactionTypes.Income)
-                .observe(this, transactionWithCAS -> {
+                .observe(getViewLifecycleOwner(), transactionWithCAS -> {
             Map<String, Double> map = groupList(transactionWithCAS);
             setData(map);
         });

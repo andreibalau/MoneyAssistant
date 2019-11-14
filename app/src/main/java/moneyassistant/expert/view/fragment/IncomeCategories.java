@@ -71,7 +71,7 @@ public class IncomeCategories extends Fragment
         simpleCallback.setCategoryAdapter(categoryAdapter);
         new ItemTouchHelper(simpleCallback).attachToRecyclerView(recyclerView);
         categoryViewModel.getCategories(Category.CategoryTypes.Income)
-                .observe(this, categories -> {
+                .observe(getViewLifecycleOwner(), categories -> {
                     categoryAdapter.submitList(categories);
                     progressBar.setVisibility(View.GONE);
                     noContent.setVisibility(categories.isEmpty() ? View.VISIBLE : View.GONE);
