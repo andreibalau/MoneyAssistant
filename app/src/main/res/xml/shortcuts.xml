@@ -10,7 +10,7 @@
         <intent
             android:action="android.intent.action.VIEW"
             android:targetPackage="moneyassistant.expert"
-            android:targetClass="moneyassistant.expert.view.activity.AddTransactionActivity">
+            android:targetClass="moneyassistant.expert.ui.transaction.activity.AddTransactionActivity">
         </intent>
     </shortcut>
 </shortcuts>

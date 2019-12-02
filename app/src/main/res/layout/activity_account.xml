@@ -5,9 +5,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:focusableInTouchMode="true"
-    tools:context=".view.activity.AccountActivity">
+    tools:context=".ui.account.activity.AccountActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbarlayout"
@@ -17,6 +16,7 @@
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
+            app:title="@string/accounts"
             android:theme="@style/AppTheme.Toolbar"
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize" />
@@ -134,7 +134,6 @@
         style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="save"
         android:text="@string/save" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

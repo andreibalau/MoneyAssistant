@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.activity.AddTransactionActivity">
+    tools:context=".ui.transaction.activity.AddTransactionActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbarlayout"
@@ -15,6 +15,7 @@
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
+            app:title=""
             android:theme="@style/AppTheme.Toolbar"
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize">

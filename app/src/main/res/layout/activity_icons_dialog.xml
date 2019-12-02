@@ -8,7 +8,7 @@
     android:paddingBottom="8dp"
     android:paddingStart="16dp"
     android:paddingEnd="16dp"
-    tools:context=".view.activity.IconsDialog">
+    tools:context=".ui.category.activity.IconsDialog">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler"

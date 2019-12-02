@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:focusableInTouchMode="true"
-    tools:context=".view.activity.CategoryActivity">
+    tools:context=".ui.category.activity.CategoryActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbarlayout"
@@ -17,6 +17,7 @@
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
+            app:title="@string/category"
             android:theme="@style/AppTheme.Toolbar"
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize" />
@@ -111,7 +112,6 @@
                     android:layout_height="wrap_content" />
 
                 <ImageView
-                    android:onClick="selectIcon"
                     android:id="@+id/category_icon"
                     android:contentDescription="@string/category"
                     android:layout_weight="1"
@@ -132,7 +132,6 @@
         style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="save"
         android:text="@string/save" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,11 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".view.activity.SplashActivity"
+            android:name=".ui.splash.SplashActivity"
             android:theme="@style/AppThemeSplash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
+                <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
@@ -25,28 +25,20 @@
                 android:name="android.app.shortcuts"
                 android:resource="@xml/shortcuts" />
         </activity>
-        <activity android:name=".view.activity.IntroActivity" />
-        <activity android:name=".view.activity.NotificationActivity" />
-        <activity android:name=".view.activity.TransactionActivity" />
-        <activity android:name=".view.activity.AddTransactionActivity" />
-        <activity android:name=".view.activity.MainActivity" />
-        <activity android:name=".view.activity.AccountActivity" />
-        <activity android:name=".view.activity.CategoriesActivity" />
-        <activity android:name=".view.activity.CategoryActivity" />
+        <activity android:name=".ui.intro.IntroActivity" />
+        <activity android:name=".ui.transaction.activity.TransactionActivity" />
+        <activity android:name=".ui.transaction.activity.AddTransactionActivity" />
+        <activity android:name=".ui.main.MainActivity" />
+        <activity android:name=".ui.account.activity.AccountActivity" />
+        <activity android:name=".ui.category.activity.CategoriesActivity" />
+        <activity android:name=".ui.category.activity.CategoryActivity" />
         <activity
-            android:name=".view.activity.IconsDialog"
+            android:name=".ui.category.activity.IconsDialog"
             android:excludeFromRecents="true"
             android:theme="@style/AppTheme.Dialog" />
-        <activity
-            android:name=".view.activity.ExportActivity"
-            android:excludeFromRecents="true"
-            android:theme="@style/AppTheme.Dialog" />
-        <activity
-            android:excludeFromRecents="true"
-            android:theme="@style/AppTheme.Dialog"
-            android:name=".view.activity.DateRangeDialog"/>
+
         <service
-            android:name=".util.NotificationService"
+            android:name=".old.util.NotificationService"
             android:label="Notify Process"
             android:permission="android.permission.BIND_JOB_SERVICE" />
     </application>
