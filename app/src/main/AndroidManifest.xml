@@ -38,7 +38,7 @@
             android:theme="@style/AppTheme.Dialog" />
 
         <service
-            android:name=".old.util.NotificationService"
+            android:name=".service.NotificationService"
             android:label="Notify Process"
             android:permission="android.permission.BIND_JOB_SERVICE" />
     </application>

@@ -1,4 +1,4 @@
-package moneyassistant.expert.old.util;
+package moneyassistant.expert.service;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -11,17 +11,31 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 
 import androidx.core.app.NotificationCompat;
+
 import moneyassistant.expert.R;
 import moneyassistant.expert.ui.splash.SplashActivity;
 
+import static moneyassistant.expert.MoneyAssistant.NOTIFICATION_CHANNEL_ID;
+
 public class NotificationService extends JobService {
+
+    @Override
+    public boolean onStartJob(JobParameters jobParameters) {
+        sendNotification(this);
+        return true;
+    }
+
+    @Override
+    public boolean onStopJob(JobParameters jobParameters) {
+        return false;
+    }
 
     private void sendNotification(Context context) {
         Uri soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         Intent intent = new Intent(context, SplashActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
         Notification notification = new NotificationCompat
-                .Builder(context, Constants.CHANNEL_ID)
+                .Builder(context, NOTIFICATION_CHANNEL_ID)
                 .setSound(soundUri)
                 .setContentIntent(pendingIntent)
                 .setSmallIcon(R.mipmap.ic_launcher)
@@ -33,17 +47,5 @@ public class NotificationService extends JobService {
         if (notifManager != null) {
             notifManager.notify(1, notification);
         }
-    }
-
-    @Override
-    public boolean onStartJob(JobParameters jobParameters) {
-        sendNotification(this);
-        Util.launchJob(this, getClass());
-        return true;
-    }
-
-    @Override
-    public boolean onStopJob(JobParameters jobParameters) {
-        return false;
     }
 }

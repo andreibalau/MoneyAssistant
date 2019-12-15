@@ -1,5 +1,6 @@
 package moneyassistant.expert.ui.account.adapter;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,10 +19,12 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import moneyassistant.expert.R;
+import moneyassistant.expert.model.Currency;
 import moneyassistant.expert.model.entity.Account;
-import moneyassistant.expert.old.util.Constants;
-import moneyassistant.expert.old.util.Util;
 import moneyassistant.expert.ui.account.listener.OnAccountClickListener;
+import moneyassistant.expert.util.SharedDataHandler;
+
+import static moneyassistant.expert.util.SharedDataHandler.PREFERED_CURRENCY;
 
 public class AccountAdapter extends ListAdapter<Account, AccountAdapter.AccountViewHolder> {
 
@@ -40,10 +43,12 @@ public class AccountAdapter extends ListAdapter<Account, AccountAdapter.AccountV
                 }
             };
     private OnAccountClickListener listener;
+    private String currency;
 
-    public AccountAdapter(OnAccountClickListener listener) {
+    public AccountAdapter(OnAccountClickListener listener, Context context) {
         super(DIFF_CALLBACK);
         this.listener = listener;
+        currency = new SharedDataHandler(context).getString(PREFERED_CURRENCY, Currency.RON.getValue());
     }
 
     @NonNull
@@ -59,7 +64,7 @@ public class AccountAdapter extends ListAdapter<Account, AccountAdapter.AccountV
         holder.render(getItem(position));
     }
 
-    public class AccountViewHolder extends RecyclerView.ViewHolder {
+    class AccountViewHolder extends RecyclerView.ViewHolder {
 
         @BindView(R.id.account_name)
         TextView accountName;
@@ -75,7 +80,6 @@ public class AccountAdapter extends ListAdapter<Account, AccountAdapter.AccountV
 
         void render(Account account) {
             accountName.setText(account.getName());
-            String currency = Util.getFromSharedPreferences(itemView.getContext(), Constants.PREFERED_CURRENCY);
             accountCurrentAmount.setText(String.format(Locale.getDefault(), "%s: %.2f %s",
                     itemView.getResources().getString(R.string.wallet_current_amount),
                     account.getCurrentAmount(), currency));

@@ -31,13 +31,13 @@ import moneyassistant.expert.MoneyAssistant;
 import moneyassistant.expert.R;
 import moneyassistant.expert.model.Type;
 import moneyassistant.expert.model.entity.Category;
-import moneyassistant.expert.old.util.Constants;
 import moneyassistant.expert.ui.category.viewmodel.CategoryViewModel;
 import moneyassistant.expert.util.IntelViewModelFactory;
 
 import static moneyassistant.expert.ui.category.activity.IconsDialog.CHANGE_ICON_REQUEST_CODE;
 import static moneyassistant.expert.ui.category.activity.IconsDialog.CHANGE_ICON_RESULT_CODE;
 import static moneyassistant.expert.ui.category.activity.IconsDialog.ICON;
+import static moneyassistant.expert.util.Icons.CATEGORY_ICONS;
 
 public class CategoryActivity extends AppCompatActivity {
 
@@ -161,7 +161,7 @@ public class CategoryActivity extends AppCompatActivity {
             changeIcon();
         } else {
             this.category = new Category();
-            String[] icons = Constants.CATEGORY_ICONS;
+            String[] icons = CATEGORY_ICONS;
             Random r = new Random();
             String icon = icons[r.nextInt(icons.length - 1)];
             this.category.setIcon(icon);

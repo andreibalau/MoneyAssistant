@@ -11,7 +11,6 @@ import javax.inject.Inject;
 
 import moneyassistant.expert.MoneyAssistant;
 import moneyassistant.expert.R;
-import moneyassistant.expert.old.util.Constants;
 import moneyassistant.expert.ui.intro.IntroActivity;
 import moneyassistant.expert.ui.main.MainActivity;
 import moneyassistant.expert.util.IntelViewModelFactory;
@@ -38,7 +37,7 @@ public class SplashActivity extends AppCompatActivity {
                 startActivity(new Intent(SplashActivity.this, MainActivity.class));
             }
             finish();
-        }, Constants.SPLASH_SCREEN_TIMEOUT);
+        }, 700);
     }
 
 }

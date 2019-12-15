@@ -1,36 +1,14 @@
-package moneyassistant.expert.old.util;
+package moneyassistant.expert.util;
 
-public class Constants {
+/**
+ * MoneyAssistant
+ * Created by catalin on 12.12.2019
+ */
+public class Icons {
 
-    private Constants() {}
-
-    public static final String FIRST_TIME_RUN = "first_time_run";
-    public static final String PREFERED_CURRENCY = "prefered_currency";
-
-    public static final int SPLASH_SCREEN_TIMEOUT = 777;
-
-    public static final String CHANNEL_ID = "money_notification_channel";
-    public static final String NOTIFICATION = "notifications";
-
-    public static final String APP = "MoneyAssistant";
-    public static final String resourceId = "id";
-    public static final String CATEGORY = "category";
-
-    public static final int CHANGE_ICON_REQUEST_CODE = 11;
-    public static final int CHANGE_ICON_RESULT_CODE = 12;
-    public static final int DATE_RANGE_REQUEST_CODE = 13;
-    public static final int DATE_RANGE_RESULT_CODE = 14;
-
-    public static final String INCOME = "income";
-    public static final String EXPENSE = "expense";
-    public static final String TRANSFER = "transfer";
-
-    public static final String DATE_FORMAT_1 = "dd MMMM yyyy";
-    public static final String DATE_FORMAT_2 = "MMMM yyyy";
-    public static final String DATE_FORMAT_3 = "yyyy";
-    public static final String DATE_FORMAT_4 = "dd MMM yyyy";
-    public static final String DATE_FORMAT_5 = "MMM yyyy";
-    public static final String DATE_FORMAT_6 = "MMM";
+    private Icons() {
+        throw new UnsupportedOperationException();
+    }
 
     public static final String[] CATEGORY_ICONS = new String[] {
             "icons8_3d_glasses",

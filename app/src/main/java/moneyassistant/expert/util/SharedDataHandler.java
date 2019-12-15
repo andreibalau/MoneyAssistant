@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 /**
  * MoneyAssistant
@@ -23,6 +24,11 @@ public class SharedDataHandler {
     public SharedDataHandler(Context context, Gson gson) {
         sharedPreferences = context.getSharedPreferences(APP, Context.MODE_PRIVATE);
         this.gson = gson;
+    }
+
+    public SharedDataHandler(Context context) {
+        sharedPreferences = context.getSharedPreferences(APP, Context.MODE_PRIVATE);
+        this.gson = new GsonBuilder().create();
     }
 
     public void storeString(String key, String value) {

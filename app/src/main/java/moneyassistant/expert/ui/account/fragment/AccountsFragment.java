@@ -78,7 +78,7 @@ public class AccountsFragment extends Fragment implements OnAccountClickListener
         MoneyAssistant.getAppComponent().inject(this);
         unbinder = ButterKnife.bind(this, view);
         AccountViewModel viewModel = new ViewModelProvider(this, factory).get(AccountViewModel.class);
-        accountAdapter = new AccountAdapter(this);
+        accountAdapter = new AccountAdapter(this, context);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(accountAdapter);
